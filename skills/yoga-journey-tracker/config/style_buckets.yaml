@@ -1,0 +1,108 @@
+# Style harmonization rules
+# Maps raw class style strings to canonical buckets.
+# The aggregator reads this; downstream charts and tables show only the canonical name.
+
+buckets:
+  Vinyasa:
+    aliases:
+      - Vinyasa
+      - Vinyasa (Other)
+      - Flow
+      - Power Vinyasa
+      - Slow Flow Vinyasa
+      - Vinyasa Flow
+      - All Levels Vinyasa
+      - Soul Service Vinyasa
+
+  Vinyasa (Power/Heated):
+    aliases:
+      - Power
+      - Power Yoga
+      - Heated Power
+      - Power Vinyasa (Heated)
+      - C2 (heated chain)
+      - Sculpt-style power
+
+  Yin / Restorative:
+    aliases:
+      - Yin
+      - Restorative
+      - Yin / Restorative
+      - Yin and Restorative
+      - Restore
+      - Yin Yoga
+      - Restorative / Yoga Nidra
+      - Yoga Nidra
+      - Slow Flow / Restore
+
+  Hatha:
+    aliases:
+      - Hatha
+      - Slow Hatha
+      - Classical Hatha
+
+  Hatha (Heated):
+    aliases:
+      - Bikram
+      - 26 & 2
+      - Hot Hatha
+      - Heated Hatha
+
+  Ashtanga:
+    aliases:
+      - Ashtanga
+      - Mysore
+      - Led Primary
+      - Half Primary
+
+  Sculpt / Pilates:
+    aliases:
+      - Sculpt
+      - Yoga Sculpt
+      - Pilates
+      - Yoga Pilates
+      - Mat Pilates
+
+  Aerial:
+    aliases:
+      - Aerial Yoga
+      - Aerial
+      - Silks
+      - Hammock Yoga
+
+  Kundalini:
+    aliases:
+      - Kundalini
+      - Kundalini Yoga
+      - Kriya
+
+  Workshop:
+    aliases:
+      - Workshop
+      - Breath Workshop
+      - Pranayama Workshop
+      - Mantra Workshop
+      - Anatomy Workshop
+      - Asana Clinic
+      - Inversions Workshop
+
+  Retreat / Workshop:
+    aliases:
+      - Retreat
+      - Day Retreat
+      - Multi-day retreat
+      - Sadhana Retreat
+      - Cacao Ceremony
+
+  Other Wellness (massage/recovery/ceremony):
+    aliases:
+      - Massage
+      - Cupping
+      - Reiki
+      - Sound bath
+      - Sound healing
+      - Ceremony
+
+  Other:
+    aliases: []
+    notes: Fallback for unmatched styles. Review periodically and add to a bucket.
