@@ -1,0 +1,42 @@
+{
+  "yoga_visits_columns": [
+    {"index": 1, "name": "Date", "type": "date", "required": true},
+    {"index": 2, "name": "Day", "type": "string", "derived_from": "Date"},
+    {"index": 3, "name": "Time", "type": "string", "format": "HH:MM AM/PM"},
+    {"index": 4, "name": "Style (Harmonized)", "type": "enum", "values_source": "config/style_buckets.yaml"},
+    {"index": 5, "name": "Class Name (Raw)", "type": "string"},
+    {"index": 6, "name": "Teacher", "type": "string", "multi_value_delimiter": " + "},
+    {"index": 7, "name": "Studio", "type": "string", "canonical_in": "Studios sheet"},
+    {"index": 8, "name": "City", "type": "string"},
+    {"index": 9, "name": "State/Province", "type": "string"},
+    {"index": 10, "name": "Country", "type": "string", "convention": "USA, UK, etc. — short forms"},
+    {"index": 11, "name": "Source", "type": "string", "examples": ["Gmail (Arketa)", "Calendar", "Manual", "Mindbody schedule"]},
+    {"index": 12, "name": "Notes", "type": "string"},
+    {"index": 13, "name": "Unsure Attended", "type": "boolean", "format": "Y or blank"},
+    {"index": 14, "name": "Studio Group", "type": "string", "examples": ["Flow State Yoga", "Sunrise Yoga Collective"]},
+    {"index": 15, "name": "Check-in Confirmed", "type": "boolean", "format": "Y or blank"},
+    {"index": 16, "name": "Swarm Venue", "type": "string"},
+    {"index": 17, "name": "Studio Status", "type": "enum", "values": ["Active", "Closed", "Renamed"]},
+    {"index": 18, "name": "Eventbrite Confirmed", "type": "boolean", "format": "Y or blank"},
+    {"index": 19, "name": "Training", "type": "enum", "values_source": "config/training_tags.yaml"}
+  ],
+  "auxiliary_sheets": {
+    "Studios": [
+      "Studio Name", "Instagram", "Website", "Status", "Studio Group",
+      "City", "State/Province", "Country", "Visit Count", "First Visit",
+      "Last Visit", "Top Teacher", "Notes"
+    ],
+    "Instructors": [
+      "Instructor Name", "Instagram", "Website", "Visit Count",
+      "Primary Studio", "First Visit", "Last Visit", "Notes"
+    ],
+    "Planned_Trainings": [
+      "Date", "Studio", "City", "State/Country", "Description",
+      "Teacher", "Status", "Tag", "Source/Notes"
+    ],
+    "Teaching_Log": [
+      "Date", "Studio/Venue", "City", "Class Taught", "Style", "Attendance", "Notes"
+    ],
+    "Summary": "Formula-driven; left for user to customize"
+  }
+}

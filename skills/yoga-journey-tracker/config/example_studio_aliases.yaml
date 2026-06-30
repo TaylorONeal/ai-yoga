@@ -1,0 +1,19 @@
+# Studio name aliases and renames.
+# Format: same as teacher_aliases.yaml.
+
+aliases:
+  # Example: studio rename
+  "Stillpoint Yoga":
+    - "Riverbend Yoga"
+    - "Riverbend Yoga / Stillpoint Yoga"
+
+  # Example: chain variations
+  "Flow State Yoga - Downtown":
+    - "Flow State Downtown"
+    - "Flow State DT"
+
+renames:
+  "Riverbend Yoga":
+    new_name: "Stillpoint Yoga"
+    rename_year: 2026
+    note: "Riverbend renamed to Stillpoint in 2026"
