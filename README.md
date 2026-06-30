@@ -44,10 +44,10 @@ reflective work for you, in your voice, on your own machine.
 
 | Skill | What it does |
 | --- | --- |
-| [`yoga-journey`](skills/yoga-journey/) | Compiles your complete training history — every course, certification, and workshop — by gathering the receipts scattered across your email and booking platforms (MINDBODY, Arketa, Momence). |
-| [`class-reconstruction`](skills/class-reconstruction/) | Rebuilds a class you taught (or want to re-teach) into a clean, shareable sequence from rough notes, a playlist, or just your memory. |
-| [`class-feedback`](skills/class-feedback/) | Turns the scattered impressions after a class into structured, kind, usable notes you can actually learn from. |
-| [`yoga-bio`](skills/yoga-bio/) | Writes your teacher bio in three ready-to-use lengths: long (website), short (social), and a studio-submission version. |
+| [`class-reconstruction`](skills/class-reconstruction/) | Reconstruct a yoga class sequence from messy notes, transcripts, photos, or memory — from a one-line flow map to a full teaching dossier with honest, per-section confidence labeling. |
+| [`yoga-bio`](skills/yoga-bio/) | Generate a yoga teacher bio in three lengths — a short schedule blurb, a medium website "about," and a full bio page — in your voice, not wellness-brochure filler. |
+| [`class-feedback`](skills/class-feedback/) | Produce feedback on a class in two modes: warm student-facing practice notes, or an honest teacher self-review to teach it better next time. |
+| [`yoga-journey-tracker`](skills/yoga-journey-tracker/) | Build, maintain, and visualize a personal practice log — pull every class, training, and retreat from Gmail, Google Calendar, MINDBODY, and Arketa, then render a dashboard, a slide deck, and a teachers document. |
 
 ## What's a "skill," and how do I use these?
 
@@ -86,25 +86,27 @@ directly by name (e.g. `/yoga-bio`).
 
 ```
 skills/
-  yoga-journey/          # Training & certification history compiler
-    SKILL.md
-  class-reconstruction/  # Rebuild a class from notes or memory
-    SKILL.md
-  class-feedback/        # Structured post-class reflection
+  class-reconstruction/  # Rebuild a class from notes, transcripts, or memory
     SKILL.md
   yoga-bio/              # Three-length teacher bio writer
     SKILL.md
+  class-feedback/        # Student notes + teacher self-review
+    SKILL.md
+  yoga-journey-tracker/  # Practice-log compiler + dashboard/deck/teachers-doc generator
+    SKILL.md             # (plus scripts/, config/, templates/ — a full multi-file skill)
 ```
 
-Each `SKILL.md` is a self-contained, depersonalized template. Fill in the bracketed
-`[placeholders]` with your own details, and the skill becomes yours.
+Each `SKILL.md` is self-contained and depersonalized — no names, studios, or private
+details. Where a skill needs your specifics, fill in the bracketed `[placeholders]`.
 
 ## A note on your data
 
-These skills run locally through Claude Code. Some of them (like `yoga-journey`) can read
-your email or connected accounts when you ask them to. Nothing is shared back to this
-repository — your training records, class notes, and bios stay with you. Treat the
-`SKILL.md` files here as blank templates, and keep anything personal out of any copy you
+These skills run locally through Claude Code. Some of them (like `yoga-journey-tracker`) can
+read your email or connected accounts when you ask them to, and write data files on your own
+machine. Nothing is shared back to this repository — your training records, class notes, and
+bios stay with you. The `yoga-journey-tracker` skill ships a `.gitignore` that keeps your
+personal `yoga_visits.xlsx`, credentials, and generated outputs from ever being committed.
+Treat the `SKILL.md` files here as blank templates, and keep anything personal out of any copy you
 publish or commit.
 
 ## Contributing

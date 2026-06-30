@@ -1,0 +1,21 @@
+{
+  "_description": "Color palette for deck and dashboard. Hex codes without leading #.",
+  "_themes_available": "warm-terracotta (default), forest, ocean, sunset, neutral",
+  "primary": "B85042",
+  "secondary": "7A9B7E",
+  "accent": "D4A574",
+  "dark": "2D2D2D",
+  "cream": "F5EFE6",
+  "text_dark": "2D2D2D",
+  "text_muted": "6B6B6B",
+  "ember": "8B5A4C",
+
+  "dashboard": {
+    "bg": "0a0e14",
+    "card": "131820",
+    "text": "E4E2DD",
+    "muted": "8B8680",
+    "border": "1f2530",
+    "accent": "D4A574"
+  }
+}

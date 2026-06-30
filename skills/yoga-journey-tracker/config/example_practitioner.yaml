@@ -1,0 +1,36 @@
+# Practitioner config — personalizes deck and dashboard output.
+# Copy this to config/practitioner.yaml and edit.
+
+name: "Your Name"
+pronouns: "they/them"  # used in deck closing slide if desired
+
+# First year of practice (deck timeline starts here)
+practice_start_year: 2010
+
+# Optional: practice signature for the closing slide
+# Leave blank to skip
+practice_signature: ""
+# Example: "Heated power vinyasa as the spine, yin as the counterweight, an immersion month every couple years."
+
+# Optional: notable trainings to feature on the training-hours slide
+# The aggregator pulls all training-tagged sessions automatically;
+# this list customizes how they appear (titles, dates, lineage).
+# Order matters: longest training first works best visually.
+featured_trainings:
+  - name: "200hr YTT"
+    sub: "Studio · Lead Teacher · YEAR"
+    hours: 200
+    color: "primary"  # references config/palette.json
+    status: "completed"
+  - name: "50hr Aerial YTT"
+    sub: "Studio · Teacher · YEAR"
+    hours: 50
+    color: "secondary"
+    status: "completed"
+
+# Optional: in-progress trainings appear with a "WIP" stripe
+in_progress_trainings:
+  - name: "300hr Advanced YTT"
+    sub: "Studio · Dates"
+    hours: 300
+    color: "accent"

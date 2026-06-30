@@ -1,0 +1,26 @@
+# Personal data — never commit
+yoga_visits.xlsx
+yoga_visits_*.xlsx
+# ...but DO ship the empty template
+!templates/yoga_visits_template.xlsx
+output/
+charts/
+stats.json
+aggregated_stats.json
+config/practitioner.yaml
+config/palette.json
+credentials.json
+token.json
+
+# Build artifacts
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

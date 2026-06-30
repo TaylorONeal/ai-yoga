@@ -1,0 +1,43 @@
+# Training column tag taxonomy
+# Apply to column 19 of the Yoga Visits sheet.
+# The aggregator uses these to compute the three-bucket model
+# (formal training hours vs workshops vs retreats).
+
+# Formal hour-credentialed training
+training_tags:
+  - "200hr YTT"
+  - "300hr (in progress)"
+  - "300hr YTT"
+  - "500hr YTT"
+  - "50hr (Aerial)"
+  - "50hr (Yin)"
+  - "50hr (Restorative)"
+  - "25hr (Restorative)"
+  - "25hr (Anatomy)"
+  - "25hr (Inversions)"
+  - "25hr (Philosophy)"
+  - "25hr (Sadhana)"
+  - "Daily philosophy (in-retreat training component)"
+
+# Single-session educational
+workshop_tags:
+  - "Workshop"
+  - "Breath workshop"
+  - "Mantra workshop"
+  - "Anatomy workshop"
+  - "Asana clinic"
+
+# Multi-day immersion practice
+# These count as sessions, not training hours.
+retreat_tags:
+  - "Multi-day retreat"
+  - "Day retreat"
+  - "Sadhana retreat"
+  - "Festival retreat"
+  - "Festival"
+
+# Teaching events (for practitioners who also teach)
+teaching_tags:
+  - "Teaching"
+  - "Assisting"
+  - "Substitute teaching"

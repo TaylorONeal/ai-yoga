@@ -1,102 +1,104 @@
 ---
 name: yoga-bio
-description: >-
-  Writes a yoga teacher's bio in three ready-to-use lengths from one set of
-  details: long (website/about page), short (social profile), and a studio
-  submission version. Use when someone needs a teacher bio, wants to refresh an
-  existing one, or needs it adapted for a specific website, studio, workshop, or
-  social platform. Triggers on "write my yoga bio," "I need a teacher bio for a
-  studio," "shorten my bio for Instagram," or "update my about page."
+description: >
+  Generate a yoga teacher bio or about-me from a teacher's background, training, lineage, style,
+  and what they want students to feel. Produces three lengths on request: a short schedule blurb
+  (about 40 to 60 words), a medium website "about" (about 120 to 180 words), and a long bio page
+  (300 words plus, optional sections). Use whenever someone says "write my yoga bio," "make my
+  teacher about-me," "I need a bio for the studio schedule," "write my About page," or wants a
+  retreat, festival, or workshop bio. Works for any style and any experience level, from a brand
+  new 200-hour teacher to a senior lead trainer.
 ---
 
-# Yoga Bio Creator
+# yoga-bio
 
-Produce a teacher bio in three lengths at once, in the teacher's own voice, from a single
-intake. One pass, three deliverables the teacher can paste anywhere.
+Generate a yoga teacher bio that sounds like a real person, not a wellness brochure. The bio
+should make a prospective student want to take the class, ground the teacher's credibility without
+listing every certificate, and carry the teacher's actual voice.
 
-## The three versions
+## Pick the Length First
 
-1. **Long (website / about page)** — ~120–250 words. Full arc: who they are, how they came
-   to yoga, training and lineage, what their classes feel like, what they care about, an
-   invitation to practice.
-2. **Short (social bio)** — ~1–3 lines, often under 150 characters for platform limits.
-   Punchy, voice-forward, scannable. Style, vibe, location, and a credential or hook.
-3. **Studio submission** — ~50–90 words, third person, professional. What a studio needs to
-   introduce a teacher to its students: name, credentials, styles taught, a sentence of
-   approach. Clean and copy-paste ready for a schedule or teacher page.
+1. **Short blurb (DEFAULT for "studio schedule" or "class listing").** 40 to 60 words. One hook,
+   one credibility anchor, one invitation. Third person.
+2. **Medium about.** 120 to 180 words. Website "About" or studio teacher page. Origin beat, what
+   the class feels like, training/lineage, who it is for. Third or first person.
+3. **Long bio page.** 300 words plus. Full About page or retreat lead bio. Adds the path into
+   yoga, teaching philosophy, lineage detail, and a personal closing line.
 
-## Intake — gather first
+When unsure, write the medium and offer to cut it down or expand it.
 
-Ask for what's available; infer nothing about a person's life or credentials.
+## Inputs to Gather
 
-- **Name** and how it should appear.
-- **Styles taught** — Vinyasa, Hatha, Yin, Restorative, Power, etc.
-- **Credentials** — RYT-200/500, specialties (prenatal, yin, trauma-informed, meditation),
-  notable trainings or teachers/lineage.
-- **Years teaching / practicing.**
-- **Approach & vibe** — what their classes feel like; what they want students to leave with.
-- **Origin** — how they came to yoga (one or two genuine sentences, only if they want it).
-- **Philosophy / values** — the thread under their teaching.
-- **Location** and where they teach (studio, online, private, traveling).
-- **Voice** — playful, grounded, poetic, plain-spoken, irreverent? Get a sample of how they
-  actually talk.
-- **Call to action** — book a class, visit a site, reach out for privates.
+Collect what is available. If a critical piece is missing (name, style, where they teach), ask
+once before writing. Do not invent credentials.
 
-## Process
-
-1. **Intake.** Collect the above. If something's thin, ask one or two follow-ups rather than
-   filling it with cliché.
-2. **Find the voice.** Match how the teacher actually speaks. If they gave a writing sample,
-   mirror its rhythm. Avoid wellness boilerplate ("namaste, embark on a journey").
-3. **Draft all three** from the same facts, each shaped for its purpose and length.
-4. **Pressure-test:**
-   - Every claim is true to the intake — no invented credentials, years, or stories.
-   - Each version reads naturally at its length, not padded or amputated.
-   - The short version respects platform character limits.
-   - The studio version is clean third person, no slang, copy-paste ready.
-5. **Deliver** all three with labels and word/character counts, then offer one round of
-   tone tweaks (warmer, more credentialed, more playful, etc.).
-
-## Output format
-
-```markdown
-## Long bio — website / about (~[N] words)
-[First or third person per preference. Full arc.]
-
-## Short bio — social (~[N] chars)
-[1–3 lines. Voice-forward.]
-
-## Studio submission (~[N] words, third person)
-[Professional. Name, credentials, styles, one-line approach.]
-
----
-**Voice used:** [grounded / playful / poetic / ...]
-**Want it warmer, shorter, or more credentialed? Say the word.**
+```
+Name:
+Pronouns:               (so the third-person voice is correct)
+Style(s) taught:        (e.g. Vinyasa, Yin, Hatha, restorative)
+Training / certs:       (e.g. [RYT-200], [RYT-500], [training school], specialty trainings)
+Lineage / teachers:     (the teachers or tradition they studied under)
+Years teaching:
+Where they teach:       (studio, online, retreats, [city])
+What the class feels:   (the experience: grounding, playful, strong, meditative)
+Who it is for:          (beginners, athletes, burned-out professionals, all levels)
+Theme / philosophy:     (the through-line of how they teach)
+Off-the-mat detail:     (one human fact, optional but it humanizes)
+Point of view:          (first or third person)
 ```
 
-## Variations to offer
+## Structure by Length
 
-- **Platform-specific shorts** — Instagram vs. a directory listing have different limits and
-  norms.
-- **First vs. third person** — websites vary; studios almost always want third person.
-- **Workshop / event blurb** — a focused variant promoting a specific offering.
-- **With / without location** — for teachers who travel or teach online.
+### Short blurb
+One sentence on what the class delivers, one on credibility (style + a single anchor like training
+or years), one warm invitation. No origin story, no list of trainings.
 
-## Guardrails
+> [Name] teaches [style] grounded in [one anchor]. Expect [the felt experience]. [Invitation line].
 
-- **Truth only.** Never invent or inflate credentials, hours, lineage, or biography. If the
-  teacher didn't say it, don't claim it.
-- **Their voice, not the genre's.** Cut spiritual-marketing cliché unless the teacher
-  genuinely talks that way.
-- **Inclusive and grounded.** Welcoming to all bodies and levels; avoid implying yoga is
-  only for the flexible, thin, or advanced.
-- **Respect platform limits** so the short version doesn't get truncated mid-word.
+### Medium about
+1. **Hook**: what a student walks away with, or the feeling of the room. Lead with the experience,
+   not the resume.
+2. **Credibility**: training, lineage, or years, in one clean sentence. Name the lineage if it
+   means something to the reader; skip the alphabet soup.
+3. **Approach**: the through-line, how they actually teach, what they emphasize.
+4. **Who it is for + invitation**: name the student and welcome them.
 
-<!--
-CUSTOMIZE ME
-- Paste your own current bio and a few sentences of how you talk, so drafts start in your
-  voice instead of a generic one.
-- Lock in your real credentials and styles here so they're never misstated.
-- Add any studios' submission requirements (word count, person, required fields) you submit
-  to regularly.
--->
+### Long bio page
+The medium structure, plus:
+- **The path in**: how they came to yoga. One honest beat, not a hero's journey.
+- **Philosophy**: what they believe practice is for, in plain language.
+- **Lineage detail**: trainings and teachers that shaped them, named with respect.
+- **Closing human line**: one off-the-mat detail or a line in their own voice.
+
+## Voice & Formatting
+
+- No em dashes. No AI-cadence.
+- Lead with the experience, not the credential. Students choose a teacher on how the class feels.
+- Specific over polished. "You will sweat and then you will not want to leave savasana" beats
+  "a transformative journey of mind, body, and spirit."
+- Cut wellness filler: "holistic," "journey," "sacred space," "transformative," "honor your body,"
+  "meet yourself on the mat." If a phrase could be on any studio's wall, replace it.
+- Name real lineage and trainings; do not inflate. A new teacher's honest bio beats a padded one.
+- Keep credentials to the ones that matter to the reader. List the rest only if asked.
+- Match the requested point of view consistently. Third person for schedules, first person reads
+  warmer on a personal site.
+- One human detail lands harder than three adjectives.
+
+## Anti-Patterns
+
+Do not:
+- Open with "Born and raised" or "From a young age" unless it earns its place.
+- Stack certifications as a substitute for saying what the class is like.
+- Use "journey," "sacred," "holistic," "transformative," or "authentic self" as load-bearing words.
+- Invent trainings, lineages, years, or studios. Use [placeholders] and flag gaps to fill.
+- Write the same generic bio that would fit any teacher. The point is recognizability.
+- Make a brand-new teacher sound like a 20-year veteran.
+
+## Quality Check Before Answering
+
+- A stranger reading it can tell what the class feels like.
+- Every credential named is real (or a clearly marked [placeholder]).
+- The point of view is consistent.
+- It is the requested length, within range.
+- No wellness filler words survived.
+- It sounds like a person, not a brochure.

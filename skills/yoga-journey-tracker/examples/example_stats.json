@@ -1,0 +1,45 @@
+{
+  "_description": "Example output of scripts/analyze/aggregate_stats.py. Use this to see the expected shape of stats.json.",
+  "total_visits": 1200,
+  "first_year": 2013,
+  "last_year": 2026,
+  "years_active": 14,
+  "unique_studios": 150,
+  "unique_teachers": 185,
+  "unique_countries": 12,
+  "unique_cities": 48,
+  "avg_per_year": 92.3,
+  "yearly": [
+    {"year": 2013, "count": 4},
+    {"year": 2026, "count": 81}
+  ],
+  "top_studios": [
+    {"studio": "Example Studio A", "count": 401}
+  ],
+  "top_teachers": [
+    {"teacher": "Example Teacher", "count": 144}
+  ],
+  "styles": [
+    {"style": "Vinyasa (Power/Heated)", "count": 418, "pct": 30.6},
+    {"style": "Vinyasa", "count": 377, "pct": 27.6}
+  ],
+  "training_hours": {
+    "formal": 360,
+    "in_progress": 300,
+    "workshops": 30,
+    "workshop_sessions": 12,
+    "retreat_sessions": 110
+  },
+  "retreats": {
+    "session_count": 110
+  },
+  "peak_year": [2025, 215],
+  "dna": {
+    "intl_visits": 130,
+    "lifetime_avg_per_week": 1.8
+  },
+  "practitioner": {
+    "name": "Example Practitioner",
+    "practice_signature": "Heated power vinyasa as the spine, yin as the counterweight."
+  }
+}
