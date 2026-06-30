@@ -46,8 +46,22 @@ reflective work for you, in your voice, on your own machine.
 | --- | --- |
 | [`class-reconstruction`](skills/class-reconstruction/) | Reconstruct a yoga class sequence from messy notes, transcripts, photos, or memory — from a one-line flow map to a full teaching dossier with honest, per-section confidence labeling. |
 | [`yoga-bio`](skills/yoga-bio/) | Generate a yoga teacher bio in three lengths — a short schedule blurb, a medium website "about," and a full bio page — in your voice, not wellness-brochure filler. |
-| [`class-feedback`](skills/class-feedback/) | Produce feedback on a class in two modes: warm student-facing practice notes, or an honest teacher self-review to teach it better next time. |
+| [`class-feedback`](skills/class-feedback/) | Produce feedback on a class in three modes: warm student-facing practice notes, an honest teacher self-review, or a digest of your public student reviews (ClassPass, MINDBODY, and others) read for what actually matters. |
 | [`yoga-journey-tracker`](skills/yoga-journey-tracker/) | Build, maintain, and visualize a personal practice log — pull every class, training, and retreat from Gmail, Google Calendar, MINDBODY, and Arketa, then render a dashboard, a slide deck, and a teachers document. |
+
+### Feeding `class-feedback` (the more, the better)
+
+`class-feedback` gets sharper the more raw material you give it, and nothing is too messy to
+help. When you debrief a class, throw in any of these:
+
+- **A post-class voice note.** Record a quick voice memo the moment class ends, while it's
+  fresh, then paste the transcript. Rough timestamps make it even better — a line like
+  "02:15 the second side felt rushed" lets the feedback line up with a real moment in class.
+- **Your class plan in any form.** Typed notes, a screenshot, or a *photo of a handwritten
+  sequence on paper* — the skill reads images, and crossed-out lines are useful signal.
+- **Your public reviews.** Paste or screenshot what students wrote on ClassPass, MINDBODY,
+  Arketa, Momence, Google, or Yelp. The skill reads them for the need underneath the words
+  and weighs patterns over one-off bad days, so you get usable signal instead of a sting.
 
 ## What's a "skill," and how do I use these?
 
