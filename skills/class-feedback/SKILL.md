@@ -1,40 +1,88 @@
 ---
 name: class-feedback
 description: >
-  Produce feedback on a yoga class in two modes: student-facing notes (what we did, what to
-  practice, encouragement) and teacher self-review (an honest critique of one's own class to teach
-  it better next time). Takes a class sequence, notes, or a description and returns warm, specific,
-  actionable feedback. Use whenever someone says "write feedback for my students," "what should I
-  tell the class to practice," "review my class," "critique this sequence," "how did that class
-  go," or "help me debrief what I taught." Works for any style and any class length.
+  Produce feedback on a yoga class in three modes: student-facing notes (what we did, what to
+  practice, encouragement), teacher self-review (an honest critique of one's own class to teach it
+  better next time), and a reviews digest that turns public student reviews into usable signal.
+  Reads any input: a class sequence or description, post-class voice-note transcripts (timestamps
+  welcome), photos or screenshots of handwritten class plans, and pasted or screenshotted reviews
+  from ClassPass, MINDBODY, Arketa, Momence, Google, or Yelp. Use whenever someone says "write
+  feedback for my students," "review my class," "critique this sequence," "how did that class go,"
+  "what are students saying," or "go through my ClassPass reviews." Works for any style and any
+  class length.
 ---
 
 # class-feedback
 
-Two different jobs share this skill. Decide which one first.
+This skill does three jobs. Decide which one first.
 
 - **Student-facing notes**: warm, encouraging, practical. Sent to students after class so they
   remember what they did and what to work on. Voice is the teacher talking to their students.
 - **Teacher self-review**: honest, specific, sometimes uncomfortable. A debrief the teacher reads
   to teach the class better next time. Voice is a sharp, supportive mentor.
+- **Reviews digest**: turn a pile of public student reviews into a short, usable read of what is
+  landing and the one thing worth changing. Voice is a clear-eyed coach.
 
 If the request is ambiguous ("give me feedback on my class"), ask which one, or produce the
-self-review and offer the student notes.
+self-review and offer the others.
 
 ## Inputs to Gather
 
 ```
-Mode:                   (student-facing / self-review)
+Mode:                   (student-facing / self-review / reviews digest)
 The class:              (sequence, arrow-flow, notes, or description)
 Style & level:
 What the teacher aimed for: (theme, peak, the feeling they wanted)
 What actually happened:  (what landed, what felt off, timing, energy in the room)
 Audience:               (for student notes: regulars, beginners, a workshop group)
+Reviews:                (pasted ClassPass / MINDBODY / Arketa / Momence / Google / Yelp text, or screenshots)
+Voice note:             (a transcript of a post-class voice memo, timestamps welcome)
+Planning material:      (typed plan, a screenshot, or a photo of handwritten notes)
 Anything specific to address: (a transition that fell apart, a cue that confused people)
 ```
 
 If the class content is thin, reconstruct the arc enough to give useful feedback, and say what you
 assumed.
+
+### Feed it everything
+
+More raw material always sharpens the read. Nothing is too messy to be useful. Ask for and accept
+all of it:
+
+- **A post-class voice note.** Suggest the teacher record a quick voice memo the moment class ends,
+  while it is fresh, then paste the transcript. Rough timestamps help a lot: a line like
+  "02:15 the second side felt rushed" lets the read line up with a real moment in the class. Even
+  an untimed brain-dump is worth pasting.
+- **Class planning material in any form.** A typed plan, a screenshot of phone notes, or a photo of
+  a handwritten sequence on paper. Read the image. Crossed-out lines and margin scribbles are
+  signal, not noise, because they show what the teacher meant to do versus what happened.
+- **Public reviews.** Paste the text or drop in screenshots. Where they live:
+  - **ClassPass**: ratings and comments on the class and teacher pages.
+  - **MINDBODY**: class reviews and the business reviews section.
+  - **Arketa / Momence**: class and instructor feedback in the dashboard.
+  - **Google / Yelp**: the studio's public page.
+  There is no public review API for these, so copy-paste or screenshot is the way in. If a teacher
+  pastes a screenshot, read the text from it.
+
+## Reading reviews and raw feedback for signal
+
+Student reviews are data, not verdicts. Read them for the need underneath the words and act on that
+need. Do this silently. Never tell the teacher you are reframing, softening, interpreting
+generously, or "not taking it literally." Never narrate the method. Present your read as the plain
+meaning.
+
+- **Translate the complaint into the need.** "Too much talking" usually means less standing around,
+  more moving or clearer cues. "Felt lost" points at pacing or cue clarity, not that the class was
+  wrong. "Not a real workout" means the challenge or the intensity signposting was unclear. "Too
+  hard" often means missing options, not a bad plan.
+- **Weight patterns over outliers.** One sharp review against twenty warm ones is about that
+  person's day, not the class. Three reviews naming the same ten-minute slump is signal.
+- **Separate the class from the conditions.** Reviews about room temperature, price, parking, the
+  app, or the front desk are not feedback on teaching. Set them aside.
+- **Keep the charge off the page.** A cruel line still holds at most one usable fact. Take the fact,
+  leave the sting. Never quote a hurtful sentence back at the teacher.
+- **Protect morale while staying honest.** Deliver signal the teacher can act on tomorrow without
+  flinching. This is not flattery and it is not toughening them up. It is clean signal.
 
 ## Mode 1: Student-Facing Notes
 
@@ -69,9 +117,30 @@ Structure:
 6. **The one change**: if the teacher changes only one thing next time, what is it and why.
 7. **Keep**: the one or two things that are working and should not be touched.
 
+When reviews or a voice note are in the inputs, fold them in here as evidence, already read for
+signal per the section above. Tie a change to the pattern that supports it without reprinting the
+raw complaints.
+
 Voice: a sharp mentor who respects the teacher. Truth over comfort. Specific over polite. Friction
 is fine when it is useful. Do not perform enthusiasm and do not soften a real problem into a
 compliment.
+
+## Mode 3: Reviews Digest
+
+For "summarize my reviews," "what are students saying," "go through my ClassPass feedback." Turn a
+pile of public reviews into a short, usable read.
+
+Structure:
+1. **The through-line**: one or two sentences on what students consistently experience.
+2. **What is landing**: the strengths that recur, each with the specific thing that earns it.
+3. **The one pattern worth acting on**: the single recurring note that would most improve the
+   class, stated as a change to try.
+4. **Set aside**: a one-line note of what you discounted and why (facilities, price, one-off
+   moods), so the teacher knows it was seen and weighed.
+5. **Optional reply drafts**: if the teacher wants to respond publicly, offer a brief, gracious
+   reply for a specific review. Keep it warm and short, never defensive.
+
+Keep it short. A digest is a compass, not a transcript.
 
 ## Cross-Cutting Craft
 
@@ -88,13 +157,19 @@ compliment.
 - No em dashes. No AI-cadence.
 - Student notes: warm, plain, second person.
 - Self-review: blunt, specific, mentor voice. Replace "great job" with what was good and why.
+- Reviews digest: brief, plain, action-first.
 - No wellness filler, no slogans, no empty reassurance.
 - Concrete beats abstract every time.
 
 ## Anti-Patterns
 
 Do not:
-- Blur the two modes. Student notes are not a critique; a self-review is not a pep talk.
+- Blur the modes. Student notes are not a critique; a self-review is not a pep talk.
+- Announce that you are reframing, softening, or interpreting feedback, or say students do not mean
+  what they say. Just give the clean read.
+- Quote a hurtful review line back at the teacher. Take the one usable fact and drop the rest.
+- Treat a single outlier review as a verdict on the class.
+- Pass off facility, price, or app complaints as teaching feedback.
 - Give praise with no mechanism ("nice flow") or criticism with no fix ("the pacing was off").
 - Dump the full sequence back at students as "feedback."
 - Soften a real problem into a compliment in the self-review.
@@ -104,8 +179,12 @@ Do not:
 ## Quality Check Before Answering
 
 - The mode is correct for what was asked.
+- Reviews are read for the underlying need; the reframing is invisible and never narrated.
+- Outliers are weighted down; a recurring pattern drives the one action.
+- Non-teaching complaints (room, price, app) are set aside, not coached on.
 - Every piece of praise names a mechanism; every critique names a fix.
 - Student notes give one or two doable practice points, not ten.
 - The self-review ends with a single clear "change this next time."
 - Safety notes are general, not invented diagnoses.
-- It sounds like the teacher (student mode) or a trusted mentor (self-review mode), not a brochure.
+- It sounds like the teacher (student mode), a trusted mentor (self-review), or a clear-eyed coach
+  (digest), not a brochure.
