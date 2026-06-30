@@ -1,0 +1,21 @@
+# Teacher name aliases.
+# Format: {canonical name: [list of alias strings to rewrite]}
+# Aliases are case-insensitive. Edit and rename to config/teacher_aliases.yaml.
+
+aliases:
+  # Example 1: Married name in parentheses
+  "Sarah Smith (Jones)":
+    - "Sarah Smith"
+    - "Sarah Jones"
+    - "Sarah S"
+
+  # Example 2: Abbreviated forms from booking systems
+  "Maya Okonkwo":
+    - "Maya O."
+    - "Maya O"
+
+  # Example 3: Nickname
+  "Liliana (Lily) Garcia":
+    - "Lily Garcia"
+    - "Liliana Garcia"
+    - "Lily G."

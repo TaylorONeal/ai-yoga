@@ -1,109 +1,111 @@
 ---
 name: class-feedback
-description: >-
-  Turns a teacher's scattered impressions right after a yoga class into
-  structured, kind, and genuinely useful reflection notes. Use when someone wants
-  to debrief a class they just taught, capture what worked and what didn't, or
-  build an ongoing teaching journal. Also helps synthesize feedback received from
-  students. Triggers on "help me reflect on the class I taught," "debrief this
-  class," "capture my teaching notes," or "process student feedback."
+description: >
+  Produce feedback on a yoga class in two modes: student-facing notes (what we did, what to
+  practice, encouragement) and teacher self-review (an honest critique of one's own class to teach
+  it better next time). Takes a class sequence, notes, or a description and returns warm, specific,
+  actionable feedback. Use whenever someone says "write feedback for my students," "what should I
+  tell the class to practice," "review my class," "critique this sequence," "how did that class
+  go," or "help me debrief what I taught." Works for any style and any class length.
 ---
 
-# Class Feedback & Reflection
+# class-feedback
 
-Capture the fleeting, valuable impressions a teacher has in the minutes after a class —
-before they evaporate — and shape them into notes that actually make the next class better.
+Two different jobs share this skill. Decide which one first.
 
-## When to use this
+- **Student-facing notes**: warm, encouraging, practical. Sent to students after class so they
+  remember what they did and what to work on. Voice is the teacher talking to their students.
+- **Teacher self-review**: honest, specific, sometimes uncomfortable. A debrief the teacher reads
+  to teach the class better next time. Voice is a sharp, supportive mentor.
 
-- Right after teaching, while it's fresh.
-- Building a teaching journal over time to spot patterns.
-- Processing feedback received from students, a mentor, or a studio.
+If the request is ambiguous ("give me feedback on my class"), ask which one, or produce the
+self-review and offer the student notes.
 
-## How to run it
+## Inputs to Gather
 
-This works best as a short guided debrief. Ask a few open questions, listen, then
-synthesize — don't interrogate. Keep the tone warm and growth-oriented; teaching reflection
-is vulnerable.
-
-### Prompts to draw it out
-
-- **The class itself:** What did you teach — style, length, how many students, level?
-- **What landed:** What felt good? When was the room most with you?
-- **What didn't:** Where did energy drop, cueing fumble, or timing slip?
-- **The people:** Anyone you adjusted, a newcomer, an injury, a standout moment?
-- **You:** How were *you* — energy, nerves, presence, voice?
-- **Sequencing & timing:** Did the arc work? Rushed or dragging anywhere? Savasana length?
-- **One change:** If you taught it again tomorrow, what's the single thing you'd change?
-
-## Process
-
-1. **Debrief** using the prompts — adapt to what the teacher volunteers; skip what doesn't
-   apply.
-2. **Sort** the raw impressions into: *worked*, *didn't*, *students/moments*, *self*, and
-   *next time*.
-3. **Find the pattern.** Name one honest strength and one specific, actionable growth edge —
-   not a vague "be more confident."
-4. **Keep it kind.** Frame growth edges as experiments to try, not failures. Protect the
-   teacher's confidence while being truthful.
-5. **Make it actionable.** End with 1–3 concrete things to carry into the next class.
-6. **Deliver** the structured note, dated, ready to drop into a teaching journal.
-
-## Output format
-
-```markdown
-# Class Reflection — [Date]
-**Class:** [Style], [Length], [# students], [Level]  ·  **Theme:** [theme]
-
-## What worked
-- ...
-
-## What I'd adjust
-- ...
-
-## Students & moments
-- [Adjustments given, newcomers, injuries to remember, highlights]
-
-## Me, as the teacher
-- [Energy, presence, voice, nerves]
-
-## Pattern this week
-- **Strength:** ...
-- **Growth edge:** ...
-
-## Carry into next class
-1. ...
-2. ...
+```
+Mode:                   (student-facing / self-review)
+The class:              (sequence, arrow-flow, notes, or description)
+Style & level:
+What the teacher aimed for: (theme, peak, the feeling they wanted)
+What actually happened:  (what landed, what felt off, timing, energy in the room)
+Audience:               (for student notes: regulars, beginners, a workshop group)
+Anything specific to address: (a transition that fell apart, a cue that confused people)
 ```
 
-## Working with student feedback
+If the class content is thin, reconstruct the arc enough to give useful feedback, and say what you
+assumed.
 
-When synthesizing feedback that came *from* students (verbal, written, or survey):
+## Mode 1: Student-Facing Notes
 
-- **Separate signal from one-offs.** Look for themes across multiple people; weigh recurring
-  notes over single strong reactions.
-- **Hold it lightly.** Student feedback reflects their experience, not a verdict on the
-  teacher. Translate it into options, not orders.
-- **Protect anonymity.** Don't single out individuals in a way that could identify them in
-  a shared note.
+Goal: students feel seen, remember the practice, and have one or two things to take home. Not a
+full sequence dump and not a lecture.
 
-## Tracking over time
+Structure:
+1. **What we explored**: one or two sentences naming the theme and the shape of the class.
+2. **What you worked**: the key poses or actions in plain language, so the body remembers.
+3. **One or two things to practice**: specific, doable at home, tied to what showed up in class.
+4. **Encouragement**: earned and specific, not blanket praise. Name something real you noticed.
+5. **Optional invitation**: next class, a pose to play with, a question to sit with.
 
-If the teacher keeps an ongoing journal, offer to:
+Voice: direct, warm, specific. Encouraging where earned, honest about what is hard. No motivational
+slogans. Talk to them like the adults they are.
 
-- Append today's reflection to their running log.
-- Surface recurring patterns ("third week your transitions out of standing felt rushed").
-- Track growth edges to see which ones have resolved.
+## Mode 2: Teacher Self-Review
 
-## Guardrails
+Goal: make the next teaching of this class better. Praise that is not actionable is noise. Lead
+with what to change, not with reassurance.
 
-- **Be honest and kind at once** — neither empty praise nor harsh critique.
-- **Specific, not generic.** "Slow the count out of Warrior II" beats "work on pacing."
-- **Confidential.** These notes are personal; keep them local and unshared.
+Structure:
+1. **What the class was trying to do**: state the intended arc, theme, and peak in one line so the
+   critique has a target.
+2. **What worked, and why**: name the specific moves that earned the result. Mechanism, not vibes.
+3. **What did not land**: be direct. Pacing, a prep that did not support the peak, a cue that
+   confused, an energy dip, a transition that broke. Say where and why.
+4. **Sequencing audit**: did the warm-up earn the peak? Was anything unsafe or under-prepped? Did
+   repetition serve a purpose or pad the clock? Was the cool-down enough to down-regulate?
+5. **Cueing audit**: were cues verb + body part + direction, or vague? Too many words? Did the
+   theme get taught or just announced?
+6. **The one change**: if the teacher changes only one thing next time, what is it and why.
+7. **Keep**: the one or two things that are working and should not be touched.
 
-<!--
-CUSTOMIZE ME
-- Set your own debrief questions — keep the 3–4 that actually help you.
-- Point this at your teaching-journal file to append instead of starting fresh.
-- Add your recurring growth edges so the skill can track them across classes.
--->
+Voice: a sharp mentor who respects the teacher. Truth over comfort. Specific over polite. Friction
+is fine when it is useful. Do not perform enthusiasm and do not soften a real problem into a
+compliment.
+
+## Cross-Cutting Craft
+
+- A peak should be earned. Every prep should train an ingredient the peak consumes. Flag preps that
+  do not pay off and peaks that arrive cold.
+- Heat -> prep -> express -> stabilize -> integrate -> down-regulate. Name where the arc breaks.
+- Repetition is a tool, not filler. Ask whether a repeated round taught something or burned time.
+- Both sides: note where the second side diverged and whether that was intentional.
+- Safety: general only. Flag an under-prepped deep backbend or a fast load on cold joints. Do not
+  invent injuries, contraindications, or medical advice.
+
+## Voice & Formatting
+
+- No em dashes. No AI-cadence.
+- Student notes: warm, plain, second person.
+- Self-review: blunt, specific, mentor voice. Replace "great job" with what was good and why.
+- No wellness filler, no slogans, no empty reassurance.
+- Concrete beats abstract every time.
+
+## Anti-Patterns
+
+Do not:
+- Blur the two modes. Student notes are not a critique; a self-review is not a pep talk.
+- Give praise with no mechanism ("nice flow") or criticism with no fix ("the pacing was off").
+- Dump the full sequence back at students as "feedback."
+- Soften a real problem into a compliment in the self-review.
+- Invent medical or injury advice.
+- Default to blanket encouragement instead of one or two specific, doable practice points.
+
+## Quality Check Before Answering
+
+- The mode is correct for what was asked.
+- Every piece of praise names a mechanism; every critique names a fix.
+- Student notes give one or two doable practice points, not ten.
+- The self-review ends with a single clear "change this next time."
+- Safety notes are general, not invented diagnoses.
+- It sounds like the teacher (student mode) or a trusted mentor (self-review mode), not a brochure.
