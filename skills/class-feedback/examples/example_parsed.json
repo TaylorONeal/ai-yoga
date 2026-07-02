@@ -1,0 +1,319 @@
+{
+  "summary": {
+    "total_reviews": 10,
+    "rated_reviews": 10,
+    "avg_rating": 3.3,
+    "sentiment_breakdown": {
+      "positive": 5,
+      "negative": 4,
+      "mixed": 1
+    }
+  },
+  "teaching_signal": {
+    "praise_patterns": [
+      {
+        "key": "sequencing",
+        "label": "Sequencing / flow",
+        "need": "How the arc was built and whether the peak was earned.",
+        "count": 4,
+        "is_pattern": true
+      },
+      {
+        "key": "theme_intention",
+        "label": "Theme / intention",
+        "need": "Whether the class's idea got taught, not just announced.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "atmosphere_warmth",
+        "label": "Warmth / atmosphere",
+        "need": "How the room felt; whether students felt welcomed and seen.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "voice_presence",
+        "label": "Voice / teaching presence",
+        "need": "The teacher's delivery, tone, and command of the room.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "cueing_good",
+        "label": "Cueing (positive)",
+        "need": "Clear, well-timed instruction that students could act on.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "music",
+        "label": "Music / playlist",
+        "need": "Soundtrack fit and volume.",
+        "count": 2,
+        "is_pattern": true
+      }
+    ],
+    "issue_patterns": [
+      {
+        "key": "pacing_talking",
+        "label": "Pacing / too much talking",
+        "need": "Less standing around, more moving or tighter cueing.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "music",
+        "label": "Music / playlist",
+        "need": "Soundtrack fit and volume.",
+        "count": 2,
+        "is_pattern": true
+      }
+    ],
+    "one_pattern_worth_acting_on": {
+      "key": "pacing_talking",
+      "label": "Pacing / too much talking",
+      "need": "Less standing around, more moving or tighter cueing.",
+      "count": 2,
+      "is_pattern": true
+    },
+    "all_themes": [
+      {
+        "key": "sequencing",
+        "label": "Sequencing / flow",
+        "need": "How the arc was built and whether the peak was earned.",
+        "count": 4,
+        "is_pattern": true
+      },
+      {
+        "key": "theme_intention",
+        "label": "Theme / intention",
+        "need": "Whether the class's idea got taught, not just announced.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "atmosphere_warmth",
+        "label": "Warmth / atmosphere",
+        "need": "How the room felt; whether students felt welcomed and seen.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "voice_presence",
+        "label": "Voice / teaching presence",
+        "need": "The teacher's delivery, tone, and command of the room.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "pacing_talking",
+        "label": "Pacing / too much talking",
+        "need": "Less standing around, more moving or tighter cueing.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "cueing_good",
+        "label": "Cueing (positive)",
+        "need": "Clear, well-timed instruction that students could act on.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "music",
+        "label": "Music / playlist",
+        "need": "Soundtrack fit and volume.",
+        "count": 2,
+        "is_pattern": true
+      },
+      {
+        "key": "clarity_lost",
+        "label": "Cue clarity / felt lost",
+        "need": "Clearer cues and sign-posting; pacing that lets people follow.",
+        "count": 1,
+        "is_pattern": false
+      },
+      {
+        "key": "too_hard_options",
+        "label": "Too hard / missing options",
+        "need": "Options and modifications were missing, not that the plan was wrong.",
+        "count": 1,
+        "is_pattern": false
+      },
+      {
+        "key": "intensity_low",
+        "label": "Not a real workout / intensity",
+        "need": "The challenge or intensity sign-posting was unclear.",
+        "count": 1,
+        "is_pattern": false
+      }
+    ]
+  },
+  "set_aside_non_teaching": [
+    {
+      "key": "temperature",
+      "label": "Room temperature",
+      "need": "",
+      "count": 1,
+      "is_pattern": false
+    },
+    {
+      "key": "parking",
+      "label": "Parking / location",
+      "need": "",
+      "count": 1,
+      "is_pattern": false
+    },
+    {
+      "key": "booking_app",
+      "label": "App / booking",
+      "need": "",
+      "count": 1,
+      "is_pattern": false
+    },
+    {
+      "key": "front_desk",
+      "label": "Front desk / staff",
+      "need": "",
+      "count": 1,
+      "is_pattern": false
+    }
+  ],
+  "outliers": [
+    {
+      "key": "clarity_lost",
+      "label": "Cue clarity / felt lost",
+      "count": 1
+    },
+    {
+      "key": "too_hard_options",
+      "label": "Too hard / missing options",
+      "count": 1
+    },
+    {
+      "key": "intensity_low",
+      "label": "Not a real workout / intensity",
+      "count": 1
+    }
+  ],
+  "reviews": [
+    {
+      "index": 1,
+      "rating": 5.0,
+      "sentiment": "positive",
+      "teaching_themes": [
+        "sequencing",
+        "theme_intention"
+      ],
+      "non_teaching_themes": [],
+      "chars": 189
+    },
+    {
+      "index": 2,
+      "rating": 4.0,
+      "sentiment": "positive",
+      "teaching_themes": [
+        "atmosphere_warmth",
+        "voice_presence"
+      ],
+      "non_teaching_themes": [],
+      "chars": 173
+    },
+    {
+      "index": 3,
+      "rating": 2.0,
+      "sentiment": "negative",
+      "teaching_themes": [
+        "pacing_talking"
+      ],
+      "non_teaching_themes": [],
+      "chars": 129
+    },
+    {
+      "index": 4,
+      "rating": 3.0,
+      "sentiment": "mixed",
+      "teaching_themes": [
+        "atmosphere_warmth"
+      ],
+      "non_teaching_themes": [
+        "temperature",
+        "parking"
+      ],
+      "chars": 120
+    },
+    {
+      "index": 5,
+      "rating": 1.0,
+      "sentiment": "negative",
+      "teaching_themes": [
+        "clarity_lost"
+      ],
+      "non_teaching_themes": [
+        "booking_app"
+      ],
+      "chars": 136
+    },
+    {
+      "index": 6,
+      "rating": 5.0,
+      "sentiment": "positive",
+      "teaching_themes": [
+        "sequencing",
+        "cueing_good",
+        "theme_intention",
+        "voice_presence"
+      ],
+      "non_teaching_themes": [],
+      "chars": 163
+    },
+    {
+      "index": 7,
+      "rating": 2.0,
+      "sentiment": "negative",
+      "teaching_themes": [
+        "too_hard_options"
+      ],
+      "non_teaching_themes": [],
+      "chars": 110
+    },
+    {
+      "index": 8,
+      "rating": 5.0,
+      "sentiment": "positive",
+      "teaching_themes": [
+        "sequencing",
+        "cueing_good",
+        "music"
+      ],
+      "non_teaching_themes": [
+        "front_desk"
+      ],
+      "chars": 109
+    },
+    {
+      "index": 9,
+      "rating": 4.0,
+      "sentiment": "positive",
+      "teaching_themes": [
+        "pacing_talking",
+        "sequencing"
+      ],
+      "non_teaching_themes": [],
+      "chars": 117
+    },
+    {
+      "index": 10,
+      "rating": 2.0,
+      "sentiment": "negative",
+      "teaching_themes": [
+        "intensity_low",
+        "music"
+      ],
+      "non_teaching_themes": [],
+      "chars": 118
+    }
+  ],
+  "_note": "Preprocessing only. Read teaching_signal for the need underneath the words; weigh issue_patterns (2+ reviews) over outliers. Set-aside items are facilities/price/app, not teaching. Do not paste this at a teacher."
+}

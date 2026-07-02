@@ -104,8 +104,8 @@ skills/
     SKILL.md
   yoga-bio/              # Three-length teacher bio writer
     SKILL.md
-  class-feedback/        # Student notes + teacher self-review
-    SKILL.md
+  class-feedback/        # Student notes + teacher self-review + reviews digest
+    SKILL.md             # (plus scripts/, templates/, references/ — a full multi-file skill)
   yoga-journey-tracker/  # Practice-log compiler + dashboard/deck/teachers-doc generator
     SKILL.md             # (plus scripts/, config/, templates/ — a full multi-file skill)
 ```
