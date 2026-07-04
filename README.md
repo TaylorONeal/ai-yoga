@@ -48,6 +48,7 @@ reflective work for you, in your voice, on your own machine.
 | [`yoga-bio`](skills/yoga-bio/) | Generate a yoga teacher bio in three lengths — a short schedule blurb, a medium website "about," and a full bio page — in your voice, not wellness-brochure filler. |
 | [`class-feedback`](skills/class-feedback/) | Produce feedback on a class in three modes: warm student-facing practice notes, an honest teacher self-review, or a digest of your public student reviews (ClassPass, MINDBODY, and others) read for what actually matters. |
 | [`yoga-journey-tracker`](skills/yoga-journey-tracker/) | Build, maintain, and visualize a personal practice log — pull every class, training, and retreat from Gmail, Google Calendar, MINDBODY, and Arketa, then render a dashboard, a slide deck, and a teachers document. |
+| [`morning-sutra-mantra`](skills/morning-sutra-mantra/) | A daily poetic contemplation from Patanjali's Yoga Sutras — one sutra, a reflection across life, practice, and relationships, and a mantra to carry. Written from what Claude already knows about you rather than a filled-in profile, and rotates verses so mornings don't repeat. |
 
 ### Feeding `class-feedback` (the more, the better)
 
@@ -108,10 +109,15 @@ skills/
     SKILL.md
   yoga-journey-tracker/  # Practice-log compiler + dashboard/deck/teachers-doc generator
     SKILL.md             # (plus scripts/, config/, templates/ — a full multi-file skill)
+  morning-sutra-mantra/  # Daily sutra contemplation, personalized from context rather than config
+    SKILL.md
+    README.md            # Install, scheduling, and privacy notes
 ```
 
 Each `SKILL.md` is self-contained and depersonalized — no names, studios, or private
 details. Where a skill needs your specifics, fill in the bracketed `[placeholders]`.
+`morning-sutra-mantra` takes a different approach: instead of placeholders, it draws on whatever
+Claude already knows about you from the conversation, memory, and prior sessions.
 
 ## A note on your data
 
@@ -120,6 +126,8 @@ read your email or connected accounts when you ask them to, and write data files
 machine. Nothing is shared back to this repository — your training records, class notes, and
 bios stay with you. The `yoga-journey-tracker` skill ships a `.gitignore` that keeps your
 personal `yoga_visits.xlsx`, credentials, and generated outputs from ever being committed.
+`morning-sutra-mantra` similarly gitignores the small rotation log it keeps locally
+(`.sutra-log.md`) so your sutra history never gets committed either.
 Treat the `SKILL.md` files here as blank templates, and keep anything personal out of any copy you
 publish or commit.
 
