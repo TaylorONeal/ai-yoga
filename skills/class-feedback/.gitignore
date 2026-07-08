@@ -1,0 +1,20 @@
+# Personal data — never commit a teacher's real class material or reviews
+reviews.txt
+parsed.json
+*_reviews.txt
+*_parsed.json
+# ...but DO ship the depersonalized example pair
+!examples/example_reviews.txt
+!examples/example_parsed.json
+
+# Build artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

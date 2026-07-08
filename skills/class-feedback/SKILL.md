@@ -6,10 +6,12 @@ description: >
   better next time), and a reviews digest that turns public student reviews into usable signal.
   Reads any input: a class sequence or description, post-class voice-note transcripts (timestamps
   welcome), photos or screenshots of handwritten class plans, and pasted or screenshotted reviews
-  from ClassPass, MINDBODY, Arketa, Momence, Google, or Yelp. Use whenever someone says "write
-  feedback for my students," "review my class," "critique this sequence," "how did that class go,"
-  "what are students saying," or "go through my ClassPass reviews." Works for any style and any
-  class length.
+  from ClassPass, MINDBODY, Arketa, Momence, Google, or Yelp. Ships a review parser
+  (scripts/parse_reviews.py), fill-in templates for each mode, and reference craft docs. Use
+  whenever someone says "write feedback for my students," "review my class," "critique this
+  sequence," "how did that class go," "what are students saying," or "go through my ClassPass
+  reviews." Works for any style and any class length.
+license: MIT
 ---
 
 # class-feedback
@@ -25,6 +27,24 @@ This skill does three jobs. Decide which one first.
 
 If the request is ambiguous ("give me feedback on my class"), ask which one, or produce the
 self-review and offer the others.
+
+## What's in this skill
+
+```
+scripts/parse_reviews.py        Pasted reviews → structured signal (ratings, themes,
+                                patterns vs outliers, teaching vs facility). No dependencies.
+templates/student-notes.md      Fill-in shape for Mode 1
+templates/self-review.md        Fill-in shape for Mode 2
+templates/reviews-digest.md     Fill-in shape for Mode 3
+references/reading-reviews.md   How to read reviews for the need underneath the words
+references/sequencing-and-cueing.md   The self-review audit rubric
+examples/                       A worked reviews input + parser output pair
+```
+
+Load a template when you start writing that mode. Load a reference when you need the depth: the
+review-reading judgment (Mode 3, and reviews-as-evidence in Mode 2) lives in
+`references/reading-reviews.md`; the sequencing and cueing audit (Mode 2) lives in
+`references/sequencing-and-cueing.md`.
 
 ## Inputs to Gather
 
@@ -71,23 +91,36 @@ need. Do this silently. Never tell the teacher you are reframing, softening, int
 generously, or "not taking it literally." Never narrate the method. Present your read as the plain
 meaning.
 
+**Use the parser first when there's a pile of reviews.** Save the pasted reviews to a text file
+(one review per block, separated by a blank line or a line of `---`) and run:
+
+```bash
+python scripts/parse_reviews.py reviews.txt --output parsed.json
+```
+
+It splits the reviews, pulls ratings, tags each with teaching themes mapped to the *need* beneath
+them, separates non-teaching complaints (temperature, price, parking, app, front desk), and weighs
+patterns (2+ reviews) over one-off outliers. It surfaces a candidate "one pattern worth acting on."
+It is a preprocessing aid only: it sorts and counts, you read for meaning. **Never paste its JSON
+at a teacher.** Then apply the judgment in `references/reading-reviews.md`. In short:
+
 - **Translate the complaint into the need.** "Too much talking" usually means less standing around,
-  more moving or clearer cues. "Felt lost" points at pacing or cue clarity, not that the class was
-  wrong. "Not a real workout" means the challenge or the intensity signposting was unclear. "Too
-  hard" often means missing options, not a bad plan.
+  more moving or clearer cues. "Felt lost" points at pacing or cue clarity. "Not a real workout"
+  means the challenge or intensity signposting was unclear. "Too hard" often means missing options.
 - **Weight patterns over outliers.** One sharp review against twenty warm ones is about that
-  person's day, not the class. Three reviews naming the same ten-minute slump is signal.
-- **Separate the class from the conditions.** Reviews about room temperature, price, parking, the
-  app, or the front desk are not feedback on teaching. Set them aside.
-- **Keep the charge off the page.** A cruel line still holds at most one usable fact. Take the fact,
-  leave the sting. Never quote a hurtful sentence back at the teacher.
-- **Protect morale while staying honest.** Deliver signal the teacher can act on tomorrow without
-  flinching. This is not flattery and it is not toughening them up. It is clean signal.
+  person's day. Three reviews naming the same slump is signal. Drive the one action off an issue
+  pattern, never an outlier.
+- **Separate the class from the conditions.** Room temperature, price, parking, the app, the front
+  desk — not teaching feedback. Set them aside (the parser does this into `set_aside_non_teaching`).
+- **Keep the charge off the page.** A cruel line holds at most one usable fact. Take the fact, leave
+  the sting. Never quote a hurtful sentence back at the teacher.
+- **Protect morale while staying honest.** Deliver clean signal the teacher can act on tomorrow
+  without flinching. Not flattery, not toughening them up.
 
 ## Mode 1: Student-Facing Notes
 
 Goal: students feel seen, remember the practice, and have one or two things to take home. Not a
-full sequence dump and not a lecture.
+full sequence dump and not a lecture. **Template: `templates/student-notes.md`.**
 
 Structure:
 1. **What we explored**: one or two sentences naming the theme and the shape of the class.
@@ -102,7 +135,8 @@ slogans. Talk to them like the adults they are.
 ## Mode 2: Teacher Self-Review
 
 Goal: make the next teaching of this class better. Praise that is not actionable is noise. Lead
-with what to change, not with reassurance.
+with what to change, not with reassurance. **Template: `templates/self-review.md`. Audit rubric:
+`references/sequencing-and-cueing.md`.**
 
 Structure:
 1. **What the class was trying to do**: state the intended arc, theme, and peak in one line so the
@@ -128,7 +162,8 @@ compliment.
 ## Mode 3: Reviews Digest
 
 For "summarize my reviews," "what are students saying," "go through my ClassPass feedback." Turn a
-pile of public reviews into a short, usable read.
+pile of public reviews into a short, usable read. **Run `scripts/parse_reviews.py` first; template:
+`templates/reviews-digest.md`.**
 
 Structure:
 1. **The through-line**: one or two sentences on what students consistently experience.
@@ -175,6 +210,7 @@ Do not:
 - Soften a real problem into a compliment in the self-review.
 - Invent medical or injury advice.
 - Default to blanket encouragement instead of one or two specific, doable practice points.
+- Paste the parser's JSON at the teacher. It is preprocessing; the read is yours to write.
 
 ## Quality Check Before Answering
 
