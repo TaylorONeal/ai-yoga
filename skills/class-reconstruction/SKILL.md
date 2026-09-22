@@ -22,19 +22,11 @@ Separate what is **strongly supported**, what is **likely but inferential**, and
 weak to claim**. The goal is not perfect historical recovery. The goal is a useful, honest,
 teachable reconstruction. Never write a reconstruction as if it were exact when it is not.
 
-## Behind-the-Scenes Rule
+## Evidence and deliverable boundary
 
-The reconstruction is the artifact. How it was made is not.
+Read [evidence and movement grammar](references/evidence-and-movement.md) before a reconstruction, especially for mixed sources, uncertain side logic, partial recordings, or different class formats. For a full Word/PDF dossier, use the [teaching dossier structure](templates/teaching-dossier.md) alongside the expanded sections below.
 
-Do not reference transcripts, recordings, audio, voice memos, OCR, auto-transcription, or "the
-source file" anywhere in the finished document. The document reads as if reconstructed from class
-observation and post-class memory.
-
-- Confidence labels say "strongly supported / likely / best guess." They do not say
-  "transcript-confirmed" or "memory-based."
-- The closing meta section is called **Reconstruction Notes** and may say it is a single-pass
-  reconstruction "based on class observation and post-class memory, cross-referenced with the
-  teacher's prior classes." Nothing about how the raw material was captured.
+Keep processing logs and technical capture details out of the main teaching flow. Preserve a concise, truthful source/coverage note and a private evidence map. Never describe transcript-only work as in-person observation or post-class memory. Quoted language requires traceability; newly written cues must be labelled study adaptations. The finished document can be clean without concealing uncertainty or falsely describing its provenance.
 
 ## Pick the Output Mode First
 
@@ -158,7 +150,7 @@ clearly symmetrical, and label it "Left Side Repeat" rather than rewriting every
 16. **Practice Reminders**: the things to remember to teach it.
 17. **Confidence by Section**: three-column grid: Strongly Supported / Likely / Best Guess.
 18. **Items to Verify Next Time**: the open questions.
-19. **Signature Language**: quote box of memorable cues. No sourcing parentheticals.
+19. **Signature Language**: quote box of memorable cues. Keep concise source attribution or label it as a study adaptation.
 20. **Pose Family Tags**: pill tags for library search.
 21. **Timing Estimates**: two-column grid by section.
 22. **Reconstruction Notes**: version + method, honoring the behind-the-scenes rule.
@@ -184,12 +176,10 @@ Props:
 Confidence:          (one-line summary; full grid lives in its own section)
 ```
 
-### Teacher Signature (required field)
+### Teacher Signature (when supported)
 
 A one-line fingerprint of the teacher's recognizable trademarks: what would let someone identify
-the class as theirs without a name on it. Pull from cueing voice, signature phrases, structural
-habits, close rituals, and lineage. Build it from bio + observed patterns + prior reconstructions
-of the same teacher. Format example:
+the class as theirs without a name on it. Use evidenced cueing voice, structural habits and close rituals. Count independent classes, not derivative reconstructions. Biography supplies context, not evidence that a movement occurred. Format example:
 
 - `[cueing tendency] · [signature pairing or theme] · [close ritual] · [breath or body emphasis]`
 
@@ -222,7 +212,7 @@ Never render a fully-duplicated two-column table.
 ## Anti-Patterns
 
 Do not:
-- Reference transcripts, recordings, or audio anywhere in the output.
+- Misrepresent a source-derived reconstruction as firsthand attendance or treat an unverified caption as an exact quotation.
 - Default to the full dossier when a concise flow was requested.
 - Render the fully-duplicated two-column mirror table.
 - Use a single blanket confidence score.
@@ -235,7 +225,7 @@ Do not:
 
 ## Quality Check Before Answering
 
-- Clear beginning, heat-building middle, and downshift.
+- The arc matches the actual format: heat/peak where supported, spacious holds and integration for quiet formats.
 - Right/left side logic is legible.
 - Counts and repeats preserved if present.
 - Output is shorter and cleaner than the input.
@@ -243,4 +233,4 @@ Do not:
 - Confidence is honest and per-section.
 - Teacher Signature is consistent with that teacher's prior classes.
 - Inferred or uncertain material is named honestly.
-- Never reveals how the raw material was captured.
+- Main teaching flow stays readable; source coverage and inference remain honest in the notes.

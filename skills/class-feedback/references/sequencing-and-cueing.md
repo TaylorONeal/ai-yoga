@@ -64,3 +64,13 @@ to the pattern that supports it. Not "work on pacing" but "cut the second sun-B
 round and use those three minutes to prep the hips before pigeon." Everything
 else in the audit is context for that one change and the one or two things to
 **keep** untouched.
+
+## Match the format and the evidence
+
+The heat/peak arc above applies to relevant active classes, not every class. For yin/restorative work inspect props, exits, time in quiet, and integration; for facilitated exploration inspect choice, clear invitation and permission to rest. Do not grade these against vinyasa intensity.
+
+Use a moment → observation → plausible mechanism → small experiment structure. A voice note saying “the second side felt rushed” is the teacher's report; it is not proof every student felt rushed. Retain rough timestamps and uncertainty. In a transcript, pauses and repeated instructions can matter; do not automatically compress them away.
+
+Theme integration should be embodied and optional, not a requirement to repeat a philosophical slogan during every pose. A more useful cue often names the action and leaves space to experience it.
+
+When reviewing the next class, compare the selected experiment with the prior one. Record what changed, what the teacher observed, and whether the evidence is sufficient to keep or revise it. Do not promise measurable improvement from a single trial.

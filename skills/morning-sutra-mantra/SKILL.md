@@ -1,110 +1,74 @@
 ---
 name: morning-sutra-mantra
-description: >
-  Daily poetic yoga-sutra contemplation, written for whoever is running it. Writes a single
-  Patanjali sutra as the day's seed, a short grounded reflection across daily life, practice, and
-  relationships, a carryable mantra, and a closing invitation toward presence and equanimity. Draws
-  on whatever the assistant already knows about the reader (conversation history, memory files,
-  prior sessions, connected calendar) instead of a filled-in profile, and rotates sutras so the same
-  verse does not repeat across nearby mornings. Use when a scheduled morning run fires, or when the
-  reader asks for their morning contemplation, today's sutra, a morning mantra, or a soul-facing
-  counterpart to a logistics briefing. This is poetry and presence, never a schedule readout.
+description: Write a grounded daily Yoga Sutra contemplation with a verified verse, personal reflection, and original mantra. Maintains local-day continuity, verse exclusions, and varied imagery without inventing personal context. Use for a morning contemplation, today's sutra, or a recurring contemplative practice.
 ---
 
 # Morning Sutra Mantra
 
-Write a daily morning contemplation for the person running this skill. This is a poetic,
-soul-facing practice, not a logistics briefing. It should help the reader feel present, alive, free
-to savor the day, and settled in equanimity.
+Write something worth sitting with. Let a particular sutra meet an actual human day, a moment of practice, and the way we relate to others. Depth comes from a precise tension and a lived image, not length, mystical adjectives, or a productivity lesson dressed as poetry.
 
-There is nothing to configure. The skill writes for whoever is on the other end of the
-conversation, using what is already known about them rather than a filled-in template.
+The user need not fill in a profile. Use what they have actually shared and what this session is authorized to read. With little context, write a simpler contemplation. Never invent a relationship, emotional state, hardship, location, or teaching role to make it seem intimate.
 
-## Know the reader before you write
+## Read before writing
 
-Before writing, gather whatever context is actually available. Use what exists; never invent what
-does not.
+- [Contemplative craft](references/contemplative-craft.md): verse interpretation, embodied application, voice, and form. Read on every writing run.
+- [Continuity and delivery](references/continuity.md): local date, prior entries, exclusion history, duplicate prevention, and recovery. Read when saving or continuing a daily practice.
 
-- **This conversation and prior sessions.** Name, how they relate to yoga (new practitioner,
-  longtime teacher, coming back after time off), things they have mentioned about their week,
-  their people, what they are carrying right now.
-- **Memory or profile files**, if this environment keeps one (a `CLAUDE.md`, a user memory store,
-  notes from earlier runs of this or other skills in this repo, e.g. a bio from `yoga-bio` or a
-  practice log from `yoga-journey-tracker`). Read them if they are there; do not ask the reader to
-  fill out a form first.
-- **A connected calendar**, if one is available in this session. Skim today's events for real
-  texture: a class they teach, a hard meeting, travel, a person they are about to see. Let it
-  quietly inform the reflection. If nothing is connected, or the calendar is empty, proceed without
-  it.
-- **If this is the first run and nothing is known yet**, do not interrogate the reader with an
-  intake form. Write a shorter, quieter contemplation that leans on the sutra itself rather than
-  invented specifics, and let it get more textured on the next day once you know more of them.
+## Establish this morning
 
-Never state your sources out loud ("I checked your calendar," "based on your memory file"). The
-knowing should be invisible. It should just read like someone who knows them wrote it.
+Use a live clock in the user's current, evidenced timezone. A home timezone, stale trip plan, session date, and file modification time are not substitutes for today's local date. Current explicit location beats old travel records. When timezone is unknown, ask only if dated output is needed; an undated reflection can proceed.
 
-## Rotate the sutra
+Before choosing a verse, locate the user's existing contemplation folder and read its canonical exclusion list and last 20 valid entries. Look for an entry already saved for today and its delivery state. Return a saved, undelivered entry instead of regenerating it. An explicit request to revise today's reflection authorizes a versioned revision; preserve the original and its history. A scheduled repeat with nothing new stays quiet. Do not create a parallel state store just because the original is inconvenient.
 
-Keep a small local log next to this skill, `.sutra-log.md` (create it on first run if it does not
-exist), with one line per morning: the date and the sutra citation used, oldest first.
+For a first use, choose an agreed private folder outside the installed skill and public checkout, for example `~/Documents/Yoga Practice/morning-sutra/`. Start history there, not in an ephemeral downloaded skill bundle. If files cannot be saved, deliver in chat and state briefly that rotation history was not saved. Never claim a durable update that did not occur.
 
-Before choosing today's sutra:
-1. Read the log.
-2. Rule out any sutra cited in the last 14 entries (or all of them, if fewer than 14 exist).
-3. Choose freely from the remaining verses across all four chapters (Samadhi, Sadhana, Vibhuti,
-   Kaivalya) — not just the handful everyone quotes. There are 196 sutras; use the range.
-4. After writing, append today's date and the citation to the log.
+## Choose the seed
 
-If the log does not exist yet, start it fresh and do not treat the absence of history as a reason
-to default to the most familiar verse (1.2, 2.46, 2.1) — pick with the same range you would if the
-log were full.
+1. Read the exclusion list **before** selecting a verse. Exclude the last 20 valid entries and any explicit longer-term bans. Preserve migrated exclusions and retractions.
+2. Explore all four chapters; do not repeatedly return to the few familiar posture verses. Do not reset history when a small seed pool runs out. Expand the verified pool or ask before relaxing an explicit permanent ban.
+3. Verify the citation, transliteration, and meaning with a reliable edition when uncertain. Numbering can vary by edition. Record the edition/reference privately. Never invent Sanskrit, silently blend two verses, or mislabel an original line as ancient text.
+4. Distinguish a translation or close paraphrase from your contemporary application. If interpreting, label it a “reading” or “reflection.” Use original wording for the English rendering; respect copyright in modern translations.
+5. Let the sutra choose the theme. Do not first read the user's latest coaching report, daily brief, or other reflection and recast its conclusion in poetic language. Shared current facts can supply texture; the contemplation needs its own center.
 
-This log is personal state, not repo content. Do not commit it; add it to `.gitignore` in whatever
-project or home directory it lives in.
+## Ground the reflection
 
-## What to produce each morning
+Use recent explicit statements over old summaries. If calendar access is already available and appropriate, bound reading to the actual local day. Accepted or organized events may be plans; they are not proof of attendance, energy, motives, or emotional response. Declined and unanswered invitations are not commitments. Multi-day stays are background, not new arrivals every morning. Distinguish an event earlier today from one that has not happened yet.
 
-1. **One sutra as the day's seed.** Cite it (e.g. "Yoga Sutra 1.2, yogash chitta vritti
-   nirodhah"). Give the Sanskrit, then a plain, felt translation in your own words, not a
-   textbook gloss.
+Keep that scaffolding out of the poem. Do not list events, name private third parties unnecessarily, or narrate memory searches. Be transparent if asked what informed the piece. If optional context cannot be reached, proceed with less specificity; disclose a material limitation briefly outside the contemplation when it affects what was requested.
 
-2. **A short reflection, 4 to 8 sentences.** Apply the sutra to three living arenas: the reader's
-   daily life, their yoga practice, and their relationships. Be specific and concrete, using what
-   you actually know about this person and, if available, today's shape. Name real textures of a
-   day, real moments on the mat, real friction and tenderness between people. This is where the
-   depth lives. If you know little about the reader yet, write it a touch more universal rather
-   than inventing detail.
+## Write the four movements
 
-3. **A mantra for the day.** One line, maybe two. Something the reader can carry, repeat, and
-   return to. First person or direct address. It should land in the body, not just the mind.
+1. **Seed:** citation, verified Sanskrit transliteration (Devanagari only if verified), then a plain English reading. Let one difficult word retain some texture rather than smoothing everything into “be present.”
+2. **Reflection:** usually 4–8 sentences. Stay with one concrete tension: effort and grasping, attention and interruption, steadiness and tenderness, a reaction and the space before acting. Move through life, mat practice, and relationship without producing three labelled mini-essays. Not every unfamiliar reader needs all three arenas forced into the same piece.
+3. **Original mantra:** one or two lines that can be remembered without opening the file again. First person or direct address. A line one can try rather than a claim of perfection. Identify this as original contemplative language, not a traditional Sanskrit mantra.
+4. **Invitation:** a small actual thing to feel or notice. A question, image, or spare closing line can work. Sometimes the mantra is the ending. Do not turn the close into homework.
 
-4. **A closing invitation, one or two sentences.** Point toward savoring, presence, and
-   equanimity. Name an actual small thing to feel or notice today, not a self-help directive.
+## Keep the voice alive
 
-## Voice
+Read the previous two entries for their opening image, sentence rhythm, mantra form, and closing device. Change the shape, not just the verse number. Do not use breath-staged mantras more than twice in seven days; natural breathing is sufficient, with no compulsory holds or counts. Avoid repeating the same doorway, cup, tide, or unclenching image because it worked once.
 
-- No em dashes. Use commas, periods, or line breaks.
-- No AI cadence. No rule-of-three constructions, no "not just X but Y" parallelism, no
-  motivational-poster energy, no TED-talk voice.
-- Poetic but grounded. Specific over polished. Concrete images over abstractions. Write like a real
-  poet who practices, not a wellness app.
-- Draw on the contemplative and non-dual traditions the practice lives in (yoga, Advaita, Buddhist
-  loving-kindness) without name-dropping them as decoration. Let the wisdom be felt, not cited
-  beyond the one sutra.
-- Fewer words is usually better. Do not pad.
+Use concrete language, emotional honesty, and enough silence. No em dashes, motivational-poster certainty, ornamental Sanskrit, forced triads, “not X but Y” constructions, wellness filler, or a punchline manufactured for every paragraph. Avoid command-heavy coaching. Do not make equanimity mean passivity, detachment mean indifference, or acceptance mean staying in a harmful situation. Yoga, Advaita, and Buddhist traditions can inform a reader's context without being collapsed into the same philosophy.
 
-## Format
+## Save and deliver
 
-Deliver as a clean, readable message with light structure: the sutra, the reflection, the mantra
-set off on its own line, then the closing. No heavy markdown, no emoji, no headers-as-labels beyond
-what makes it breathe. This is meant to be read slowly with coffee.
+Keep file metadata stable when saving:
 
-## Self-check before delivering
+```yaml
+type: morning-sutra
+date: YYYY-MM-DD
+sutra: chapter.verse
+image: a short description of the central image
+```
 
-- Strip any em dashes, any AI-cadence tells, any generic advice. If it reads like a chatbot,
-  rewrite it until it reads like a person who means it.
-- Confirm today's sutra is not in the last 14 log entries, and that the log has been updated.
-- Confirm nothing about the reader was invented — everything specific came from real context.
+Store the entry first, then update verse history and any configured mirror log. Reconcile partial writes on retry rather than appending twice. Track saved and delivered separately; creating a file is not proof the user received it. Read back what was written. Do not put actual run history, exclusions, reader profiles, delivery addresses, or calendar details in the public skill.
 
-See this skill's [README](README.md) for install, scheduling, and privacy notes on the rotation
-log.
+The contemplation is the delivery: no preamble about source searches or state management. For scheduled use, follow the already-authorized runtime delivery path; do not set up another schedule or send a second notification. Scheduling and external sharing require their own explicit request.
+
+## Final pass
+
+- Is the verse real, correctly cited, outside exclusions, and distinct from recent themes?
+- Does each personal detail come from current evidence, and belong to this local day?
+- Does the reflection stay with the verse rather than echo the morning's practical advice?
+- Is there a felt image and an honest tension, instead of a slogan?
+- Have the last two forms changed? Does the mantra work without a breathing protocol?
+- Are history, saved output, and delivery state consistent? If not, repair before claiming completion.

@@ -102,3 +102,9 @@ Do not:
 - It is the requested length, within range.
 - No wellness filler words survived.
 - It sounds like a person, not a brochure.
+
+## Deeper evidence and voice pass
+
+Read [evidence and voice workshop](references/evidence-and-voice.md) before drafting from a mixed training history or adapting multiple versions. Keep a private facts ledger and distinguish completed training from registration, workshops, retreats and work in progress. Separate years practicing from years teaching; documented training from mentorship/influence; studio attendance from employment. Never total courses into a credential the person has not earned.
+
+Use actual language samples or cueing choices to establish voice. “What does a student notice in the first ten minutes?” is more productive than asking for three brand adjectives. For workshop, retreat and social variants, follow the placement-specific priorities in the reference. Preserve consistent facts across all versions and put unresolved claims in an editor's note rather than publishable prose.

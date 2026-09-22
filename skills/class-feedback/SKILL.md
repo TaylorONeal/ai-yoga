@@ -81,41 +81,20 @@ all of it:
   - **MINDBODY**: class reviews and the business reviews section.
   - **Arketa / Momence**: class and instructor feedback in the dashboard.
   - **Google / Yelp**: the studio's public page.
-  There is no public review API for these, so copy-paste or screenshot is the way in. If a teacher
+  This package does not include review API integrations; use authorized pasted/exported material or screenshots. If a teacher
   pastes a screenshot, read the text from it.
 
 ## Reading reviews and raw feedback for signal
 
-Student reviews are data, not verdicts. Read them for the need underneath the words and act on that
-need. Do this silently. Never tell the teacher you are reframing, softening, interpreting
-generously, or "not taking it literally." Never narrate the method. Present your read as the plain
-meaning.
+Student reviews report experience; explanations for that experience remain hypotheses. Read [review interpretation](references/reading-reviews.md) before drawing conclusions. Deduplicate reports and show denominators. Frequency does not erase severity: one serious consent or safety concern deserves attention.
 
-**Use the parser first when there's a pile of reviews.** Save the pasted reviews to a text file
-(one review per block, separated by a blank line or a line of `---`) and run:
+For a pile of pasted reviews, the optional parser can help organize them:
 
 ```bash
 python scripts/parse_reviews.py reviews.txt --output parsed.json
 ```
 
-It splits the reviews, pulls ratings, tags each with teaching themes mapped to the *need* beneath
-them, separates non-teaching complaints (temperature, price, parking, app, front desk), and weighs
-patterns (2+ reviews) over one-off outliers. It surfaces a candidate "one pattern worth acting on."
-It is a preprocessing aid only: it sorts and counts, you read for meaning. **Never paste its JSON
-at a teacher.** Then apply the judgment in `references/reading-reviews.md`. In short:
-
-- **Translate the complaint into the need.** "Too much talking" usually means less standing around,
-  more moving or clearer cues. "Felt lost" points at pacing or cue clarity. "Not a real workout"
-  means the challenge or intensity signposting was unclear. "Too hard" often means missing options.
-- **Weight patterns over outliers.** One sharp review against twenty warm ones is about that
-  person's day. Three reviews naming the same slump is signal. Drive the one action off an issue
-  pattern, never an outlier.
-- **Separate the class from the conditions.** Room temperature, price, parking, the app, the front
-  desk — not teaching feedback. Set them aside (the parser does this into `set_aside_non_teaching`).
-- **Keep the charge off the page.** A cruel line holds at most one usable fact. Take the fact, leave
-  the sting. Never quote a hurtful sentence back at the teacher.
-- **Protect morale while staying honest.** Deliver clean signal the teacher can act on tomorrow
-  without flinching. Not flattery, not toughening them up.
+It groups keywords and surfaces candidate patterns. Read the originals before using its labels, sentiment or counts; it cannot establish cause, independently verify a claim, or decide which concern matters most. Preserve teaching versus studio-operations ownership without discarding substantive concerns. Present observations, plausible explanations, and practical experiments distinctly. Do not invent a story about a reviewer's day to dismiss an outlier.
 
 ## Mode 1: Student-Facing Notes
 
@@ -215,8 +194,8 @@ Do not:
 ## Quality Check Before Answering
 
 - The mode is correct for what was asked.
-- Reviews are read for the underlying need; the reframing is invisible and never narrated.
-- Outliers are weighted down; a recurring pattern drives the one action.
+- Reports remain distinct from interpretations; uncertainty is stated plainly.
+- Ordinary patterns guide a teaching experiment; serious single reports receive separate attention.
 - Non-teaching complaints (room, price, app) are set aside, not coached on.
 - Every piece of praise names a mechanism; every critique names a fix.
 - Student notes give one or two doable practice points, not ten.
@@ -224,3 +203,9 @@ Do not:
 - Safety notes are general, not invented diagnoses.
 - It sounds like the teacher (student mode), a trusted mentor (self-review), or a clear-eyed coach
   (digest), not a brochure.
+
+## Evidence, severity, and follow-through
+
+Treat the parser as triage, not a verdict. Deduplicate reviews, preserve class/date attribution and report theme counts with denominators. A reported experience and your explanation are different claims. Read [review interpretation](references/reading-reviews.md) before turning keywords into coaching; do not silently substitute what a reviewer “must have meant.” A single serious consent, discrimination or safety report needs attention even without a repeated pattern.
+
+For self-review, anchor each finding in a moment, observation, possible mechanism and small next-class experiment. Compare like formats: quiet practice and facilitated exploration do not need a vinyasa heat peak. On a follow-up review, assess the experiment against the new observations rather than starting a disconnected critique. Keep student-facing notes free of private review material, names and inferred diagnoses; a draft is not permission to send it.
