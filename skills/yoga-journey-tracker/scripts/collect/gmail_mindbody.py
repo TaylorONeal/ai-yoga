@@ -44,7 +44,9 @@ def parse_mindbody_email(subject: str, body: str) -> dict | None:
     if not (class_m and dt_m):
         return None
 
-    year = dt_m.group("year") or str(datetime.now().year)
+    year = dt_m.group("year")
+    if not year:
+        return None  # Keep for manual review; never assign the current year to old mail.
     try:
         dt = datetime.strptime(
             f"{dt_m['month']} {dt_m['day']} {year}", "%B %d %Y"
@@ -69,7 +71,8 @@ def parse_mindbody_email(subject: str, body: str) -> dict | None:
         "State/Province": "",
         "Country": "",
         "Source": "Gmail (Mindbody)",
-        "Notes": "",
+        "Notes": "Booking evidence only; reconcile cancellations and attendance.",
+        "Unsure Attended": "Y",
     }
 
 
