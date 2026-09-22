@@ -50,3 +50,7 @@ The generator also writes `skills/*/index.html`, so folder links from the origin
 Python regression checks: install `openpyxl` and `pyyaml` in an isolated environment, then run `python -m unittest discover -s tests -p 'test_*.py'`. Checks cover conservative duplicate matching, real multiple-session days, provisional attendance, cancellation precedence, empty workbooks, individual co-teachers and explicit training hours.
 
 The companion personal repository has `scripts/verify-yoga.mjs`, which exercises the actual yoga-page link and copy interactions at desktop and narrow widths. For the standalone site, set `TOOLKIT_URL` to the locally served toolkit root.
+
+## Parent-site navigation
+
+A sticky navigation bar links to Taylor’s homepage, `/yoga`, and `/projects`. It stays visible on hash-linked skills and direct skill URLs, including mobile layouts. All destinations use the canonical HTTPS domain so the same navigation works on GitHub Pages. Anchor offsets keep section headings clear of the bar.
