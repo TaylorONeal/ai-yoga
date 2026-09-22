@@ -6,3 +6,5 @@
 - [Booking-source field guide](../skills/yoga-journey-tracker/references/booking-sources.md): Momence and broader source recovery.
 - [Reconciliation](../skills/yoga-journey-tracker/references/reconciliation.md): identity, attendance and accounting rules.
 - [Contemplative craft](../skills/morning-sutra-mantra/references/contemplative-craft.md) and [continuity](../skills/morning-sutra-mantra/references/continuity.md): substantive and operational depth.
+
+- [Published-content privacy audit](PRIVACY_AUDIT.md): example provenance, workbook inspection, and current-publication scope.

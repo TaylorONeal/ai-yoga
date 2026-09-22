@@ -118,7 +118,7 @@ def parse_arketa_email(subject: str, body: str) -> dict | None:
 
 STYLE_KEYWORDS = [
     ("Vinyasa (Power/Heated)", ["power vinyasa", "power", "heated"]),
-    ("Vinyasa", ["vinyasa", "flow", "soul service"]),
+    ("Vinyasa", ["vinyasa", "flow"]),
     ("Yin / Restorative", ["yin", "restorative", "yoga nidra"]),
     ("Hatha", ["hatha"]),
     ("Kundalini", ["kundalini"]),
