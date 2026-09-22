@@ -111,7 +111,8 @@ def parse_arketa_email(subject: str, body: str) -> dict | None:
         "State/Province": "",
         "Country": "",
         "Source": "Gmail (Arketa reminder)" if "Reminder" in subject else "Gmail (Arketa booking)",
-        "Notes": "",
+        "Notes": "Booking evidence only; reconcile cancellations and attendance.",
+        "Unsure Attended": "Y",
     }
 
 

@@ -101,21 +101,36 @@ def to_date(d) -> Optional[date]:
     return None
 
 
-def find_matching_row(ws, the_date: date, studio: str, time_str: str = None) -> Optional[int]:
-    """Return the row index of an existing matching visit, or None.
+def normalized_time(value) -> str:
+    """Normalize explicit start times without guessing missing times."""
+    text = str(value or "").strip().upper()
+    for fmt in ("%I:%M %p", "%I:%M%p", "%H:%M", "%H:%M:%S"):
+        try:
+            return datetime.strptime(text, fmt).strftime("%H:%M")
+        except ValueError:
+            pass
+    return text
 
-    Match key: date + studio (+ time when provided).
-    """
+
+def find_matching_row(ws, the_date: date, studio: str, time_str: str = None,
+                      class_name: str = "", teacher: str = "", city: str = "") -> Optional[int]:
+    """Conservative match; missing time/location is not a same-day wildcard."""
+    norm = lambda value: str(value or "").strip().casefold()
+    if not studio or not normalized_time(time_str):
+        return None
+    matches = []
     for r in range(2, ws.max_row + 1):
-        d = to_date(ws.cell(r, 1).value)
-        s = ws.cell(r, 7).value
-        if d == the_date and (s or "").strip().lower() == (studio or "").strip().lower():
-            if time_str is None:
-                return r
-            t = ws.cell(r, 3).value
-            if (t or "").strip() == time_str.strip():
-                return r
-    return None
+        if to_date(ws.cell(r, 1).value) != the_date or norm(ws.cell(r, 7).value) != norm(studio):
+            continue
+        if normalized_time(ws.cell(r, 3).value) != normalized_time(time_str):
+            continue
+        # Conflicting class/teacher/location must remain separate for review.
+        if any(norm(incoming) and norm(ws.cell(r, column).value)
+               and norm(incoming) != norm(ws.cell(r, column).value)
+               for column, incoming in ((5, class_name), (6, teacher), (8, city))):
+            continue
+        matches.append(r)
+    return matches[0] if len(matches) == 1 else None
 
 
 def append_row(ws, row_dict: dict) -> int:
@@ -154,7 +169,14 @@ def upsert_visit(ws, row_dict: dict, strategy: str = "stamp") -> str:
     d = to_date(row_dict.get("Date"))
     if not d:
         return "skipped"
-    existing = find_matching_row(ws, d, row_dict.get("Studio") or "", row_dict.get("Time"))
+    existing = find_matching_row(ws, d, row_dict.get("Studio") or "", row_dict.get("Time"),
+                                 row_dict.get("Class Name (Raw)"), row_dict.get("Teacher"), row_dict.get("City"))
+    # Exact replay is idempotent even when a record lacks a start time.
+    if existing is None and not normalized_time(row_dict.get("Time")):
+        for r in range(2, ws.max_row + 1):
+            if all(str(ws.cell(r, i).value or "") == str(row_dict.get(col) or "")
+                   for i, col in enumerate(COLUMNS, 1) if col != "Day"):
+                return "skipped"
     if existing is None:
         append_row(ws, row_dict)
         return "inserted"

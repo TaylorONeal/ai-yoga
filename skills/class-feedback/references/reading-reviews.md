@@ -1,66 +1,34 @@
-# Reading reviews and raw feedback for signal
+# Reading reviews for signal
 
-Read this before writing a reviews digest, or before folding reviews into a
-self-review as evidence. It is the judgment layer that sits on top of
-`scripts/parse_reviews.py` — the script sorts and counts, this tells you how to
-read what it surfaced.
+Reviews are evidence of a reported experience, not direct access to what caused it. Keep the reviewer's observation separate from your teaching hypothesis. Be constructive without erasing the complaint or pretending you know what the writer “really meant.”
 
-Student reviews are data, not verdicts. Read them for the need underneath the
-words and act on that need. Do this silently. Never tell the teacher you are
-reframing, softening, interpreting generously, or "not taking it literally."
-Never narrate the method. Present your read as the plain meaning.
+## Read at the right unit
 
-## Translate the complaint into the need
+Keep platform, date, class/instructor if known, source, and duplicate identity. The same review copied to two sites is one report. If the instructor or class is ambiguous, do not attribute it as established. Separate ratings from text; a high rating can contain a useful concern and a low rating can be about a booking problem.
 
-The surface phrase is rarely the actual problem. Map it down:
+Count themes with denominators: “3 of 12 distinct reviews mention unclear transitions.” Two mentions are a lead, not a universal finding. Self-selected reviews cannot establish the whole class's view. Compare similar formats and time periods; a quiet yin class and a power flow need different expectations.
 
-| What they wrote | What it usually means | What to act on |
+## Report → interpretation → experiment
+
+| Reported experience | Possible explanation to investigate | Concrete experiment |
 | --- | --- | --- |
-| "Too much talking" | Less standing around, more moving or clearer cues | Tighten transitions; cue while moving, not before |
-| "Felt lost" | Pacing or cue clarity, not that the class was wrong | Sign-post sides and shape; slow the hand-off between poses |
-| "Not a real workout" | The challenge or intensity sign-posting was unclear | Name the effort ("this is the hard part"); offer a harder line |
-| "Too hard" | Missing options, not a bad plan | Offer a modification before the shape, not after |
-| "Boring" | Predictable arc or an unearned peak | Vary the entry; make the peak feel arrived-at |
-| "Too much hands-on" | Consent and calibration, not that assists are bad | Ask first; lighten the pressure; offer opt-out cards |
+| Too much talking | Cue density, explanations during holds, or mismatch with expected quiet | Record a short teaching segment and remove cues that repeat the same action |
+| Felt lost | Side changes, transitions, sightlines, or unfamiliar vocabulary | Name the next side and destination before the transition |
+| Too hard | Level mismatch, few options, pace, or unclear expectation | Introduce a lower-load option before the hardest transition |
+| Not enough movement | Format mismatch or long pauses | Set the format expectation at the start and inspect transition timing |
+| Unwanted hands-on contact | A consent or boundary concern | Prioritize a specific consent review; do not wait for more complaints |
+| Music was distracting | Volume, hearing access, taste, or timing | Check audibility from different points in the room |
 
-When you write, present the *need*, not the translation. Write "students want
-tighter transitions in the standing series," never "one reviewer said too much
-talking but they really mean..."
+These are hypotheses, not automatic translations. Quote only the short neutral wording necessary for accuracy. Do not repeat cruel language to make a point; do not minimize its substantive content either.
 
-## Weight patterns over outliers
+## Frequency is not severity
 
-One sharp review against twenty warm ones is about that person's day, not the
-class. Three reviews naming the same ten-minute slump is signal. The parser
-encodes this: a theme in 2+ reviews is `is_pattern: true`; a single-occurrence
-theme lands in `outliers`. Drive the digest's one action off an **issue
-pattern**, never off an outlier — even a vivid one.
+A single report of unwanted touch, discrimination, unsafe instruction or injury deserves direct attention. Keep the allegation accurately attributed, avoid adjudicating facts you cannot establish, and identify an appropriate review step. Do not dismiss it as “one bad day” because most ratings were warm. Ordinary preference outliers may remain outliers; serious concerns are not voted away.
 
-## Separate the class from the conditions
+## Teaching and conditions
 
-Reviews about room temperature, price, parking, the app, or the front desk are
-not feedback on teaching. The parser puts these in `set_aside_non_teaching`.
-Acknowledge them in one line so the teacher knows they were seen and weighed,
-then set them down. Do not coach the teacher on the studio's thermostat.
+Separate what the teacher can change from studio operations such as parking, billing, room temperature and booking access. Do not discard access or safety concerns merely because another party owns the fix. Say who can act and what the available evidence supports; never contact a reviewer or studio without authorization.
 
-## Keep the charge off the page
+## Deliver the digest
 
-A cruel line still holds at most one usable fact. Take the fact, leave the sting.
-Never quote a hurtful sentence back at the teacher. "This teacher is a
-condescending mess who wasted my hour" becomes, if anything, one line about tone
-landing as condescension for at least one student — and only if a pattern backs
-it. If nothing backs it, it is one bad day; drop it.
-
-## Protect morale while staying honest
-
-Deliver signal the teacher can act on tomorrow without flinching. This is not
-flattery and it is not toughening them up. It is clean signal: the strengths
-that recur (so they keep doing them), and the single most useful change (stated
-as a thing to try, not a failing).
-
-## Resolving "mixed" themes
-
-The parser tags `music` and `adjustments` as mixed — they can show up as praise
-in one review ("perfect playlist") and a complaint in another ("too loud"). The
-count can't tell direction. Read the individual reviews (each carries its
-`teaching_themes` and `sentiment`) to decide which way a mixed theme actually
-leans before you put it in the digest.
+State coverage and distinct-review count. Identify repeated strengths, specific concerns and uncertainties, then one ordinary teaching experiment with the evidence behind it. Add a separate priority issue if severity warrants one. Keep mixed themes mixed until text establishes direction. A parser's keyword count is a triage aid; read the original entries before reporting conclusions.

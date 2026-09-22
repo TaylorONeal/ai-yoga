@@ -24,3 +24,8 @@ venv/
 .idea/
 .vscode/
 *.swp
+token_*.json
+config/teacher_aliases.yaml
+config/studio_aliases.yaml
+config/known_studios.txt
+private/

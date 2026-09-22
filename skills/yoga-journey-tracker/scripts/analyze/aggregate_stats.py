@@ -1,241 +1,134 @@
-"""Aggregate yoga_visits.xlsx into a stats JSON file.
+"""Summarize a reviewed workbook with explicit attendance and hour definitions.
 
-Produces the canonical input for the output renderers (deck, dashboard,
-teachers doc). Enforces the three-bucket model: formal training hours,
-workshop hours, and retreat sessions (not hours).
-
-Usage:
-    python scripts/analyze/aggregate_stats.py
-    python scripts/analyze/aggregate_stats.py --input yoga_visits.xlsx --output stats.json
+Usage: python scripts/analyze/aggregate_stats.py --input visits.xlsx --output stats.json
+Optional: --include-provisional (clearly labelled wider population)
 """
 from __future__ import annotations
-
 import argparse
 import json
-from datetime import datetime, date
-from collections import Counter, defaultdict
+import math
+from collections import Counter
+from datetime import date, datetime
 from pathlib import Path
-
 import openpyxl
 import yaml
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = REPO_ROOT / "yoga_visits.xlsx"
-DEFAULT_OUTPUT = REPO_ROOT / "stats.json"
-TAGS_CONFIG = REPO_ROOT / "config" / "training_tags.yaml"
-PRACTITIONER_CONFIG = REPO_ROOT / "config" / "practitioner.yaml"
+ROOT = Path(__file__).resolve().parents[2]
 
 
-def to_date(d):
-    if isinstance(d, datetime):
-        return d.date()
-    if isinstance(d, date):
-        return d
-    if isinstance(d, str):
-        for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%B %d, %Y"):
-            try:
-                return datetime.strptime(d, fmt).date()
-            except ValueError:
-                continue
+def to_date(value):
+    if isinstance(value, datetime):
+        return value.date()
+    if isinstance(value, date):
+        return value
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%B %d, %Y"):
+        try:
+            return datetime.strptime(str(value), fmt).date()
+        except ValueError:
+            pass
     return None
 
 
+def attendance(row):
+    """Use structured flags/status, never guess attendance from a blank cell."""
+    yes = {"y", "yes", "true", "1"}
+    state = str(row.get("Attendance Status", "")).strip().casefold()
+    if state in {"cancelled", "canceled", "late cancel", "late-canceled", "absent", "no show", "no-show", "excluded"}:
+        return "excluded"
+    if str(row.get("Unsure Attended") or "").strip().casefold() not in {"", "n", "no", "false", "0"}:
+        return "provisional"
+    if state in {"confirmed", "attended", "signed in", "user-confirmed"} or str(row.get("Check-in Confirmed", "")).strip().casefold() in yes:
+        return "confirmed"
+    return "provisional"
+
+
 def load_rows(ws):
-    rows = []
-    for r in range(2, ws.max_row + 1):
-        d = to_date(ws.cell(r, 1).value)
-        if not d:
+    headers = [cell.value for cell in ws[1]]
+    result = []
+    for values in ws.iter_rows(min_row=2, values_only=True):
+        if not any(value is not None for value in values):
             continue
-        rows.append({
-            "date": d,
-            "year": d.year,
-            "month": d.strftime("%Y-%m"),
-            "dow": d.strftime("%A"),
-            "time": ws.cell(r, 3).value,
-            "style": ws.cell(r, 4).value or "Other",
-            "class_name": ws.cell(r, 5).value or "",
-            "teacher": ws.cell(r, 6).value or "",
-            "studio": ws.cell(r, 7).value or "",
-            "city": ws.cell(r, 8).value or "",
-            "country": ws.cell(r, 10).value or "",
-            "source": ws.cell(r, 11).value or "",
-            "notes": ws.cell(r, 12).value or "",
-            "studio_group": ws.cell(r, 14).value or "",
-            "training": (ws.cell(r, 19).value or "").strip(),
-        })
-    return rows
+        row = dict(zip(headers, values))
+        row["date"] = to_date(row.get("Date"))
+        row["attendance"] = attendance(row)
+        result.append(row)
+    return result
 
 
-def compute_training_hours(rows, tags_config, practitioner_config):
-    """Three-bucket sum.
+def verified_hours(entries):
+    """Only sum explicit nonnegative finite hours; unknown remains unknown."""
+    values = [e.get("hours") for e in entries]
+    valid = [v for v in values if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) and v >= 0]
+    return {"known_hours": sum(valid), "entries_with_hours": len(valid), "entries_without_hours": len(entries) - len(valid)}
 
-    Formal hours come from `featured_trainings` in practitioner config
-    if present, else inferred from tag counts × estimated hours per tag.
-    Workshops are tag-counted × 2.5 hr average.
-    Retreats are session-counted (NOT hours).
-    """
-    formal_tags = set(tags_config.get("training_tags", []))
-    workshop_tags = set(tags_config.get("workshop_tags", []))
-    retreat_tags = set(tags_config.get("retreat_tags", []))
 
-    tag_counts = Counter(r["training"] for r in rows if r["training"])
-
-    # Formal hours: prefer practitioner-config explicit values
-    formal_hours = 0
-    in_progress_hours = 0
-    featured = practitioner_config.get("featured_trainings", []) if practitioner_config else []
-    in_progress = practitioner_config.get("in_progress_trainings", []) if practitioner_config else []
-
-    if featured:
-        formal_hours = sum(t.get("hours", 0) for t in featured)
-    else:
-        # Fallback: assume each formal-tag is a complete training (rough)
-        hour_estimates = {
-            "200hr YTT": 200, "300hr YTT": 300, "500hr YTT": 500,
-            "50hr (Aerial)": 50, "50hr (Yin)": 50, "50hr (Restorative)": 50,
-            "25hr (Restorative)": 25, "25hr (Anatomy)": 25, "25hr (Inversions)": 25,
-            "25hr (Philosophy)": 25, "25hr (Sadhana)": 25,
-        }
-        for tag, count in tag_counts.items():
-            if tag in formal_tags and tag in hour_estimates:
-                # Tag appears once per training, not per session
-                formal_hours += hour_estimates[tag]
-
-    if in_progress:
-        in_progress_hours = sum(t.get("hours", 0) for t in in_progress)
-    elif "300hr (in progress)" in tag_counts:
-        in_progress_hours = 300
-
-    # Workshop hours: rough estimate (2.5 hr/workshop)
-    workshop_sessions = sum(c for t, c in tag_counts.items() if t in workshop_tags)
-    workshop_hours = round(workshop_sessions * 2.5)
-
-    # Retreat session count
-    retreat_sessions = sum(c for t, c in tag_counts.items() if t in retreat_tags)
-
+def summarize(rows, config=None, include_provisional=False):
+    config = config or {}
+    states = Counter(row["attendance"] for row in rows)
+    chosen = [row for row in rows if row["date"] and (row["attendance"] == "confirmed" or (include_provisional and row["attendance"] == "provisional"))]
+    teachers = Counter()
+    for row in chosen:
+        teachers.update(set(t.strip() for t in str(row.get("Teacher") or "").split(" + ") if t.strip()))
+    years = Counter(row["date"].year for row in chosen)
+    months = Counter(row["date"].strftime("%Y-%m") for row in chosen)
+    days = {row["date"] for row in chosen}
+    def counts(column):
+        return Counter(str(row.get(column) or "Unknown") for row in chosen)
+    def records(counter, key):
+        return [{key: label, "count": count} for label, count in counter.most_common()]
+    studios = counts("Studio")
+    countries = counts("Country")
+    first = min(days) if days else None
+    last = max(days) if days else None
+    duration = (last - first).days + 1 if first else 0
+    completed = [entry for entry in config.get("featured_trainings", []) if entry.get("status") == "completed"]
     return {
-        "formal": formal_hours,
-        "in_progress": in_progress_hours,
-        "workshops": workshop_hours,
-        "workshop_sessions": workshop_sessions,
-        "retreat_sessions": retreat_sessions,
+        "population": "confirmed + provisional" if include_provisional else "confirmed only",
+        "definitions": {
+            "visit": "one included class occurrence; input must be reconciled before aggregation",
+            "practice_day": "one distinct local date with an included visit",
+            "teacher": "individual co-teachers counted separately; aliases must be reviewed first",
+            "training": "hours come only from explicit configuration, never inferred from visit tags",
+        },
+        "records_reviewed": len(rows),
+        "attendance_counts": {key: states[key] for key in ("confirmed", "provisional", "excluded")},
+        "undated_records": sum(row["date"] is None for row in rows),
+        "total_visits": len(chosen), "practice_days": len(days),
+        "first_date": str(first) if first else None, "last_date": str(last) if last else None,
+        "visits_per_week_observed_span": round(len(chosen) * 7 / duration, 2) if duration >= 7 else None,
+        "unique_teachers": len(teachers),
+        "unique_studios": len([s for s in studios if s != "Unknown"]),
+        "unique_countries": len([c for c in countries if c != "Unknown"]),
+        "yearly": [{"year": y, "count": years[y]} for y in sorted(years)],
+        "monthly": [{"month": m, "count": months[m]} for m in sorted(months)],
+        "top_teachers": records(teachers, "teacher"),
+        "top_studios": records(studios, "studio"),
+        "countries": records(countries, "country"),
+        "styles": records(counts("Style (Harmonized)"), "style"),
+        "training_hours": {
+            "completed_formal": verified_hours(completed),
+            "in_progress": verified_hours(config.get("in_progress_trainings", [])),
+            "workshops": verified_hours(config.get("workshops", [])),
+        },
+        "warnings": ["Counts depend on prior identity/status reconciliation; booking and calendar records remain provisional unless confirmed.",
+                     "Unspecified training/workshop hours are unknown, not zero or estimated credentials."],
     }
-
-
-def sanity_checks(rows):
-    """Emit warnings for likely data-quality issues."""
-    warnings = []
-    blank_country = sum(1 for r in rows if not r["country"])
-    if blank_country:
-        warnings.append(f"{blank_country} rows missing Country")
-
-    # Day-of-week mismatch with date
-    mismatches = sum(1 for r in rows if False)  # placeholder; Day is derived
-    if mismatches:
-        warnings.append(f"{mismatches} rows have Day not matching Date")
-
-    # Year gaps
-    years = sorted({r["year"] for r in rows})
-    if len(years) > 2:
-        for i in range(1, len(years) - 1):
-            if years[i + 1] - years[i] > 1:
-                warnings.append(f"Year gap between {years[i]} and {years[i + 1]}")
-
-    return warnings
 
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--input", default=str(DEFAULT_INPUT))
-    p.add_argument("--output", default=str(DEFAULT_OUTPUT))
-    args = p.parse_args()
-
-    in_path = Path(args.input)
-    out_path = Path(args.output)
-
-    wb = openpyxl.load_workbook(in_path, data_only=True)
-    ws = wb["Yoga Visits"]
-    rows = load_rows(ws)
-
-    # Load configs
-    tags_config = {}
-    if TAGS_CONFIG.exists():
-        with open(TAGS_CONFIG) as f:
-            tags_config = yaml.safe_load(f) or {}
-
-    practitioner_config = {}
-    if PRACTITIONER_CONFIG.exists():
-        with open(PRACTITIONER_CONFIG) as f:
-            practitioner_config = yaml.safe_load(f) or {}
-
-    # Core aggregations
-    years = Counter(r["year"] for r in rows)
-    months = Counter(r["month"] for r in rows)
-    styles = Counter(r["style"] for r in rows)
-    teachers = Counter(r["teacher"] for r in rows if r["teacher"])
-    studios = Counter(r["studio"] for r in rows if r["studio"])
-    countries = Counter(r["country"] for r in rows if r["country"])
-
-    days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    dow_counts = Counter(r["dow"] for r in rows)
-    dow_sorted = [(d, dow_counts.get(d, 0)) for d in days_order]
-
-    training_hours = compute_training_hours(rows, tags_config, practitioner_config)
-    training_tag_counts = Counter(r["training"] for r in rows if r["training"])
-
-    intl_visits = sum(1 for r in rows if r["country"] and r["country"] != "USA")
-    first_year = min(years.keys())
-    last_year = max(years.keys())
-    years_active = last_year - first_year + 1
-
-    total = len(rows)
-
-    data = {
-        "total_visits": total,
-        "first_year": first_year,
-        "last_year": last_year,
-        "years_active": years_active,
-        "unique_studios": len(studios),
-        "unique_teachers": len(teachers),
-        "unique_countries": len(countries),
-        "unique_cities": len({r["city"] for r in rows if r["city"]}),
-        "avg_per_year": round(total / years_active, 1),
-        "yearly": [{"year": y, "count": years[y]} for y in sorted(years)],
-        "monthly": [{"month": m, "count": months[m]} for m in sorted(months)],
-        "top_studios": [{"studio": s, "count": c} for s, c in studios.most_common(15)],
-        "top_teachers": [{"teacher": t, "count": c} for t, c in teachers.most_common(15)],
-        "top_countries": [{"country": c, "count": n} for c, n in countries.most_common(10)],
-        "styles": [
-            {"style": s, "count": c, "pct": round(c / total * 100, 1)}
-            for s, c in styles.most_common()
-        ],
-        "dow": [{"day": d, "count": c} for d, c in dow_sorted],
-        "training_tags": [{"tag": t, "count": c} for t, c in training_tag_counts.most_common()],
-        "training_hours": training_hours,
-        "retreats": {
-            "session_count": training_hours["retreat_sessions"],
-        },
-        "peak_year": list(max(years.items(), key=lambda x: x[1])),
-        "dna": {
-            "intl_visits": intl_visits,
-            "lifetime_avg_per_week": round(total / (years_active * 52), 1),
-        },
-        "practitioner": practitioner_config,
-    }
-
-    with open(out_path, "w") as f:
-        json.dump(data, f, indent=2, default=str)
-
-    print(f"Wrote {out_path}")
-    print(f"  {total} visits  ·  {years_active} years  ·  {len(studios)} studios  ·  {len(teachers)} teachers")
-    print(f"  Training: {training_hours['formal']}h formal · {training_hours['workshops']}h workshops · {training_hours['retreat_sessions']} retreat sessions")
-    print(f"  In progress: {training_hours['in_progress']}h")
-
-    warnings = sanity_checks(rows)
-    if warnings:
-        print("\nSanity warnings:")
-        for w in warnings:
-            print(f"  · {w}")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", default=str(ROOT / "yoga_visits.xlsx"))
+    parser.add_argument("--output", default=str(ROOT / "stats.json"))
+    parser.add_argument("--config", help="Private practitioner YAML with explicit training hours")
+    parser.add_argument("--include-provisional", action="store_true")
+    args = parser.parse_args()
+    config = yaml.safe_load(Path(args.config).read_text()) or {} if args.config else {}
+    workbook = openpyxl.load_workbook(args.input, data_only=True)
+    data = summarize(load_rows(workbook["Yoga Visits"]), config, args.include_provisional)
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    print(f"Wrote {output}: {data['total_visits']} visits / {data['practice_days']} practice days ({data['population']})")
 
 
 if __name__ == "__main__":
