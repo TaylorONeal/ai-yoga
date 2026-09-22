@@ -1,6 +1,6 @@
 # Documentation index
 
-- [Website maintenance](WEBSITE.md): visual toolkit, full prompts, publishing, synchronization, and verification.
+- [Website maintenance](WEBSITE.md): visual toolkit, complete copy-and-paste prompts, publishing, synchronization, and verification.
 - [Repository overview](../README.md): skills and usage.
 
 - [Booking-source field guide](../skills/yoga-journey-tracker/references/booking-sources.md): Momence and broader source recovery.
