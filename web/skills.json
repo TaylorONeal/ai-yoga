@@ -1,0 +1,121 @@
+[
+  {
+    "id": "yoga-bio",
+    "title": "Your teaching. In your words.",
+    "label": "Teacher bio",
+    "category": "Voice & identity",
+    "description": "Shape a recognizable teacher bio from the way you actually teach. Keep the training honest, the voice human, and every version consistent.",
+    "input": "Your teaching language, background, training, and intended audience",
+    "output": "A schedule blurb, website profile, retreat introduction, or social bio",
+    "example": "Write my yoga teacher bio in three lengths: a short studio blurb, a website introduction, and a full bio. Ask me for the background you need. Keep my voice and never invent credentials.",
+    "note": "Includes a facts-ledger method, credential checks, voice questions, and guidance for five publishing contexts.",
+    "depth": [
+      "Completed training vs. work in progress",
+      "Practice years vs. teaching years",
+      "Voice drawn from real cueing choices",
+      "Different copy for each placement"
+    ],
+    "sampleTitle": "One teacher. Several useful forms.",
+    "sample": [
+      "Studio blurb / 40–60 words",
+      "Website introduction / 120–180 words",
+      "Full profile / 300+ words",
+      "Workshop & social / tailored to fit"
+    ]
+  },
+  {
+    "id": "class-reconstruction",
+    "title": "Keep the architecture of a class.",
+    "label": "Class reconstruction",
+    "category": "Sequence & structure",
+    "description": "Move from messy recall to a clear flow, or a complete teaching dossier. Preserve the side changes, repetition, pauses, and choices that made the class work.",
+    "input": "Class notes, a transcript, notebook photos, or what you remember",
+    "output": "A concise flow map, with a fuller teaching dossier on request",
+    "example": "Help me reconstruct this yoga class as a concise arrow-flow map. Separate what is strongly supported from what is uncertain, and ask about gaps instead of filling them in as facts. Here are my notes: [paste notes or attach photos].",
+    "note": "Includes movement grammar, source and inference rules, style-specific reconstruction, and a 19-part dossier template with a real teaching script.",
+    "depth": [
+      "Explicit side, repeat & optional-path logic",
+      "Source-supported vs. inferred material",
+      "Timing that adds up to actual practice",
+      "A complete speakable teaching script"
+    ],
+    "sampleTitle": "A flow you can read at a glance",
+    "sample": [
+      "Arrival → spinal warm-up",
+      "Standing / first side → reset",
+      "Second side / note any differences",
+      "Integration → rest"
+    ]
+  },
+  {
+    "id": "class-feedback",
+    "title": "Turn reflection into better teaching.",
+    "label": "Class feedback",
+    "category": "Reflection & refinement",
+    "description": "Make sense of voice notes, class plans, and student reviews. Name what landed, understand what needs attention, and choose a concrete experiment for next class.",
+    "input": "Your class plan, a voice-note transcript, or pasted public reviews",
+    "output": "Student practice notes, a teacher self-review, or a reviews digest",
+    "example": "Help me write an honest self-review of the class I taught. Identify what worked, what felt unclear, and one practical change for next time. Here is my class plan and post-class reflection: [paste notes].",
+    "note": "Three modes: student notes, private self-review, and reviews digest. Includes templates, a review parser, and evidence-aware interpretation.",
+    "depth": [
+      "A specific moment, not a vague critique",
+      "Review patterns with real denominators",
+      "Serious concerns beyond simple frequency",
+      "One next-class experiment & follow-through"
+    ],
+    "sampleTitle": "A useful reflection has a next step",
+    "sample": [
+      "Notice / the second side felt rushed",
+      "Locate / transition into the balance",
+      "Try / introduce the option earlier",
+      "Return / compare after the next class"
+    ]
+  },
+  {
+    "id": "yoga-journey-tracker",
+    "title": "See the practice behind the numbers.",
+    "label": "Yoga journey",
+    "category": "History & perspective",
+    "description": "Reconcile years of classes, teachers, and training across booking platforms and scattered records. Keep what happened distinct from what was booked.",
+    "input": "Booking history, studio exports, calendars, notebooks, or personal recall",
+    "output": "A reconciled private ledger and a clear view of your practice",
+    "example": "Help me start a yoga practice log using a manual list first. Keep uncertain attendance visible and separate teacher training from workshops and regular practice. Explain any setup before running scripts or connecting accounts.",
+    "note": "Momence, Mindbody, Arketa, Walla and more. The method works with exports and available connections; it does not assume every provider has an installed integration.",
+    "depth": [
+      "Momence + a broad source field guide",
+      "Cancellations, guest passes & duplicate records",
+      "Multiple classes vs. distinct practice days",
+      "Confirmed attendance & evidenced training hours"
+    ],
+    "sampleTitle": "Different records. One honest history.",
+    "sample": [
+      "Booking + reminder → one candidate",
+      "Check-in or recollection → attendance evidence",
+      "Two classes in one day → two visits",
+      "Training hours → explicit, separate evidence"
+    ]
+  },
+  {
+    "id": "morning-sutra-mantra",
+    "title": "A little more depth in the morning.",
+    "label": "Sutra & mantra",
+    "category": "Contemplation & continuity",
+    "description": "Let a verified sutra meet the texture of an actual day. A thoughtful reading, a lived image, and an original mantra, with enough continuity to become a practice.",
+    "input": "Nothing required; share personal context only if you want to",
+    "output": "One sutra, a reflection, a mantra, and a closing invitation",
+    "example": "Write a morning sutra contemplation and a short mantra for today. Use only context I have actually shared; if you know little about me, keep it simple rather than inventing personal details.",
+    "note": "Includes contemplative craft, local-day and duplicate checks, the last 20 verse exclusions, persistent history, and variation in imagery and form.",
+    "depth": [
+      "Verified verse, distinct from interpretation",
+      "Personal context without invented intimacy",
+      "Verse-led reflection, not a recycled briefing",
+      "History-aware selection & varied daily form"
+    ],
+    "sampleTitle": "Original mantra · illustrative example",
+    "sample": [
+      "Steady enough",
+      "to soften.",
+      "A line to try, not a state to achieve."
+    ]
+  }
+]
