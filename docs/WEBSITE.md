@@ -5,9 +5,9 @@ GitHub Pages is configured to deploy `main` from the repository root. Keep that 
 
 ## Edit and build
 
-- `web/skills.json`: curated labels, descriptions, setup notes, and starter prompts.
+- `web/skills.json`: curated labels, descriptions, setup notes, and task requests.
 - `skills/*/SKILL.md`: canonical, unabridged full prompts. The website does not rewrite them.
-- `scripts/build-site.mjs`: static HTML generator and portable skill-creation prompts.
+- `scripts/build-site.mjs`: static HTML generator and self-contained prompts.
 - `web/toolkit.css`, `web/toolkit.js`: responsive appearance and progressive enhancement.
 
 Use Node 22 or newer. No dependency install is needed.
@@ -35,13 +35,13 @@ Review and commit those generated files in the personal-site repository separate
 
 All five skills and full prompts exist in static HTML. JavaScript adds skill selection, deep links, copy feedback, and manual selection when clipboard access fails. Without JavaScript, every skill remains readable and its text can be manually copied. No prompts or user data are uploaded by this website. Typography uses Google Fonts with local fallback fonts.
 
-The primary copy action includes SKILL.md and all supporting Markdown guidance in one portable prompt. It asks the assistant to use its real reusable-skill or project-instruction capability, or continue in the conversation when saving is unavailable. Script-backed tasks still need the complete folder. The page does not assume a specific assistant, filesystem, subscription, or connector.
+Each skill has exactly one copy box. It includes the task request, space for personal material, complete SKILL.md, and all supporting Markdown guidance. It works in a fresh conversation; saving it as a reusable skill is optional. Script-backed tasks still need the complete folder. The page does not assume a specific assistant, filesystem, subscription, or connector.
 
 The five skills include deeper references for reconstruction, evidence-based feedback, biography facts/voice, booking-source reconciliation including Momence, and sustained sutra practice. The tracker does not claim missing output scripts or unimplemented provider APIs. Legacy helpers remain partial collectors requiring review.
 
 ## Verification
 
-`npm test` checks catalog completeness, exact prompt fidelity, unique copy targets, portable creation prompts with supporting guidance, both canonical URLs, and relative assets. Browser verification covers desktop/mobile geometry, all five selectors, deep-link history, full-prompt expansion, exact clipboard values, and clipboard-denied fallback. Keep published claims limited to checked functionality.
+`npm test` checks catalog completeness, exact prompt fidelity, unique copy targets, complete prompts with supporting guidance, both canonical URLs, and relative assets. Browser verification covers desktop/mobile geometry, all five selectors, deep-link history, full-prompt expansion, exact clipboard values, and clipboard-denied fallback. Keep published claims limited to checked functionality.
 
 ## Skill links and deeper methods
 

@@ -7,7 +7,7 @@
 Browse all five skills, copy their full prompts, and get guided installation instructions.
 The website is published with GitHub Pages; see [website maintenance](docs/WEBSITE.md).
 
-These are reusable instructions for your AI assistant. Copy a complete skill-creation prompt from the [visual toolkit](https://tayloroneal.github.io/ai-yoga/) and ask your assistant to save it as a skill, project instructions, or a reusable prompt. If saving is unavailable, use it in the current conversation.
+These are reusable instructions for your AI assistant. Copy a complete prompt from the [visual toolkit](https://tayloroneal.github.io/ai-yoga/) and ask your assistant to save it as a skill, project instructions, or a reusable prompt. If saving is unavailable, use it in the current conversation.
 Each one does a piece of the invisible work that surrounds teaching yoga — gathering your
 training history, rebuilding a class from memory, capturing feedback, writing your bio — so
 you can spend less time at a keyboard and more time on the mat.
@@ -74,9 +74,9 @@ help. When you debrief a class, throw in any of these:
 A skill gives your AI a repeatable way to do a particular job. You do not need to start with a terminal or a folder installation.
 
 1. Open the [visual toolkit](https://tayloroneal.github.io/ai-yoga/) and choose a skill.
-2. Copy its **skill-creation prompt**. The full instructions and supporting written guides are included.
-3. Paste it into your assistant and ask it to create a reusable skill. It should adapt to the saving features it actually supports, or use the instructions in the current conversation.
-4. Add your own material with the starting prompt and review the result.
+2. Copy its **prompt**. The full instructions and supporting written guides are included.
+3. Paste it into your assistant to use it immediately. Saving it as a reusable skill is optional.
+4. Add your material in the indicated space and review the result. The prompt works in a fresh conversation, with no installation needed.
 
 For tasks requiring scripts or file templates, download the complete skill folder from this repository. Your assistant should explain any missing tools, dependencies, or account access rather than claim those were installed by pasting text. Tool-specific folder installation is optional and depends on your assistant.
 
