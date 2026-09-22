@@ -1,45 +1,106 @@
 {
-  "_description": "Example output of scripts/analyze/aggregate_stats.py. Use this to see the expected shape of stats.json.",
-  "total_visits": 1200,
-  "first_year": 2013,
-  "last_year": 2026,
-  "years_active": 14,
-  "unique_studios": 150,
-  "unique_teachers": 185,
-  "unique_countries": 12,
-  "unique_cities": 48,
-  "avg_per_year": 92.3,
+  "population": "confirmed only",
+  "definitions": {
+    "visit": "one included class occurrence; input must be reconciled before aggregation",
+    "practice_day": "one distinct local date with an included visit",
+    "teacher": "individual co-teachers counted separately; aliases must be reviewed first",
+    "training": "hours come only from explicit configuration, never inferred from visit tags"
+  },
+  "records_reviewed": 6,
+  "attendance_counts": {
+    "confirmed": 6,
+    "provisional": 0,
+    "excluded": 0
+  },
+  "undated_records": 0,
+  "total_visits": 6,
+  "practice_days": 6,
+  "first_date": "2040-01-02",
+  "last_date": "2040-01-12",
+  "visits_per_week_observed_span": 3.82,
+  "unique_teachers": 2,
+  "unique_studios": 2,
+  "unique_countries": 1,
   "yearly": [
-    {"year": 2013, "count": 4},
-    {"year": 2026, "count": 81}
+    {
+      "year": 2040,
+      "count": 6
+    }
   ],
-  "top_studios": [
-    {"studio": "Example Studio A", "count": 401}
+  "monthly": [
+    {
+      "month": "2040-01",
+      "count": 6
+    }
   ],
   "top_teachers": [
-    {"teacher": "Example Teacher", "count": 144}
+    {
+      "teacher": "Demo Teacher A",
+      "count": 3
+    },
+    {
+      "teacher": "Demo Teacher B",
+      "count": 3
+    }
+  ],
+  "top_studios": [
+    {
+      "studio": "Demo Studio A",
+      "count": 3
+    },
+    {
+      "studio": "Demo Studio B",
+      "count": 3
+    }
+  ],
+  "countries": [
+    {
+      "country": "Demo Country",
+      "count": 6
+    }
   ],
   "styles": [
-    {"style": "Vinyasa (Power/Heated)", "count": 418, "pct": 30.6},
-    {"style": "Vinyasa", "count": 377, "pct": 27.6}
+    {
+      "style": "Hatha",
+      "count": 2
+    },
+    {
+      "style": "Yin / Restorative",
+      "count": 1
+    },
+    {
+      "style": "Vinyasa",
+      "count": 1
+    },
+    {
+      "style": "Workshop",
+      "count": 1
+    },
+    {
+      "style": "Retreat / Workshop",
+      "count": 1
+    }
   ],
   "training_hours": {
-    "formal": 360,
-    "in_progress": 300,
-    "workshops": 30,
-    "workshop_sessions": 12,
-    "retreat_sessions": 110
+    "completed_formal": {
+      "known_hours": 0,
+      "entries_with_hours": 0,
+      "entries_without_hours": 0
+    },
+    "in_progress": {
+      "known_hours": 0,
+      "entries_with_hours": 0,
+      "entries_without_hours": 0
+    },
+    "workshops": {
+      "known_hours": 0,
+      "entries_with_hours": 0,
+      "entries_without_hours": 0
+    }
   },
-  "retreats": {
-    "session_count": 110
-  },
-  "peak_year": [2025, 215],
-  "dna": {
-    "intl_visits": 130,
-    "lifetime_avg_per_week": 1.8
-  },
-  "practitioner": {
-    "name": "Example Practitioner",
-    "practice_signature": "Heated power vinyasa as the spine, yin as the counterweight."
-  }
+  "warnings": [
+    "Counts depend on prior identity/status reconciliation; booking and calendar records remain provisional unless confirmed.",
+    "Unspecified training/workshop hours are unknown, not zero or estimated credentials."
+  ],
+  "_description": "Entirely synthetic fixture, generated from templates/sample_data.csv. Dates, places, people and totals do not describe any real practitioner."
 }

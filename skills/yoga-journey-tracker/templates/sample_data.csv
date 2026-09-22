@@ -1,7 +1,7 @@
-Date,Day,Time,Style (Harmonized),Class Name (Raw),Teacher,Studio,City,State/Province,Country,Source,Notes,Training
-2015-06-15,Monday,6:00 PM,Vinyasa (Power/Heated),Power Vinyasa,Sample Teacher One,Sample Studio,Seattle,WA,USA,Manual,First class,
-2015-06-17,Wednesday,6:00 PM,Vinyasa,Vinyasa Flow,Sample Teacher Two,Sample Studio,Seattle,WA,USA,Manual,,
-2016-03-12,Saturday,10:00 AM,Workshop,Inversions Workshop,Sample Teacher One,Sample Studio,Seattle,WA,USA,Manual,Three-hour workshop,Workshop
-2016-08-15,Monday,9:00 AM,Retreat / Workshop,200hr YTT Module 1,Lead YTT Teacher,YTT Host Studio,Seattle,WA,USA,Manual,Day 1 of 200hr,200hr YTT
-2018-05-20,Sunday,9:00 AM,Vinyasa,Beach Yoga,Retreat Lead,Sample Retreat Venue,Sayulita,Nayarit,Mexico,Manual,Multi-day retreat day 1,Multi-day retreat
-2024-03-25,Monday,7:00 AM,Vinyasa,Morning Practice,Lead Aerial Teacher,Sample Thailand Studio,Koh Phangan,,Thailand,Manual,Aerial YTT day 1,50hr (Aerial)
+Date,Day,Time,Style (Harmonized),Class Name (Raw),Teacher,Studio,City,State/Province,Country,Source,Notes,Training,Check-in Confirmed
+2040-01-02,Monday,10:00 AM,Hatha,Demo Hatha,Demo Teacher A,Demo Studio A,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,,Y
+2040-01-04,Wednesday,10:00 AM,Yin / Restorative,Demo Yin / Restorative,Demo Teacher B,Demo Studio A,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,,Y
+2040-01-06,Friday,10:00 AM,Hatha,Demo Hatha,Demo Teacher A,Demo Studio A,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,,Y
+2040-01-08,Sunday,10:00 AM,Vinyasa,Demo Vinyasa,Demo Teacher B,Demo Studio B,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,,Y
+2040-01-10,Tuesday,10:00 AM,Workshop,Demo Workshop,Demo Teacher A,Demo Studio B,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,Workshop,Y
+2040-01-12,Thursday,10:00 AM,Retreat / Workshop,Demo Retreat / Workshop,Demo Teacher B,Demo Studio B,Demo City,Demo Region,Demo Country,Synthetic fixture,Fictional row for testing; not an attendance record,,Y
