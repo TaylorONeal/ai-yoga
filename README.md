@@ -112,6 +112,28 @@ These are deliberately generic so any teacher can adopt them. If you improve a s
 it depersonalized — no names, studios, or private details in the templates — and open a
 pull request.
 
+## The rest of the yoga stack
+
+Two companions to this toolkit, each usable on its own.
+
+| Project | For | Where |
+|---|---|---|
+| CueCraft | Teachers planning and cueing classes | [cuecraftyoga.com](https://cuecraftyoga.com) |
+| [Tandava](https://github.com/TaylorONeal/tandava) | Studios: scheduling, memberships, payments, check-in | [tandavastudio.com](https://tandavastudio.com) · [live demo](https://tandava-flame.vercel.app) |
+
+Mobile apps are in review, not yet on the App Store or Google Play. The web apps above work today.
+
+## More from me
+
+I'm Taylor O'Neal, a yoga teacher and a product person, which is the whole reason this
+exists. I build the tools I wanted and could not find.
+
+- [tayloroneal.com](https://www.tayloroneal.com) for what I'm working on and how to reach me
+- [@businesstaylor](https://x.com/businesstaylor) on X, where I post build notes
+- [@grizzpm](https://www.youtube.com/@grizzpm) on YouTube
+
+If this saved you time, a star helps other people find it. Issues and PRs are welcome.
+
 ## License
 
 [MIT](LICENSE) © 2026 Taylor O'Neal
