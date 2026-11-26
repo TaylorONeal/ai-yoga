@@ -2,6 +2,8 @@
 
 **Turn a class you just taught into feedback you can use.**
 
+[![Deploy on MindPal](https://mindpal.space/badges/deploy-on-mindpal.svg)](https://mindpal.space/skills/yoga-class-feedback?utm_source=github&utm_medium=readme_button)
+
 A [Claude Code](https://claude.com/claude-code) skill that does three related
 jobs for a yoga teacher, and knows which one you're asking for:
 
